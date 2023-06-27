@@ -1,0 +1,72 @@
+create table Bundle
+(
+    Bundle_id    integer       not null
+        primary key autoincrement
+        unique,
+    Bundle_name  nvarchar(100) not null,
+    Bundle_price integer       not null,
+    Bundle_Image text,
+    Date_start   text,
+    Date_end     text
+);
+
+create table Gun_skin
+(
+    Gun_id         integer       not null
+        primary key autoincrement
+        unique,
+    Gun_skin_name  nvarchar(100) not null,
+    Gun_price      integer       not null,
+    Gun_skin_image text          not null,
+    Bundle         integer
+        constraint Gun_skin_Bundle_Bundle_id_fk
+            references Bundle
+);
+
+create table User
+(
+    User_id   integer not null
+        primary key autoincrement
+        unique,
+    User_name text    not null,
+    Password  text    not null,
+    Role      integer not null
+);
+
+create table Shop
+(
+    Shop_id    integer not null
+        primary key autoincrement
+        unique,
+    User_id    integer not null
+        constraint Shop_User_User_id_fk
+            references User,
+    Gun_skin_1 integer not null
+        constraint Shop_Gun_skin_Gun_id_fk
+            references Gun_skin,
+    Gun_skin_2 integer not null
+        constraint Shop_Gun_skin_Gun_id_fk_2
+            references Gun_skin,
+    Gun_skin_3 integer not null
+        constraint Shop_Gun_skin_Gun_id_fk_3
+            references Gun_skin,
+    Gun_skin_4 integer not null
+        constraint Shop_Gun_skin_Gun_id_fk_4
+            references Gun_skin,
+    Date_start text,
+    Date_end   text
+);
+
+create table User_Profile
+(
+    User_id         integer
+        unique
+        constraint User_Profile_User_User_id_fk
+            references User,
+    Server          text,
+    Level           integer default 1,
+    Exp             integer default 0 not null,
+    Valorant_Point  integer default 0,
+    Radianite_Point integer default 0,
+    Free_Agent      integer default 0
+);
