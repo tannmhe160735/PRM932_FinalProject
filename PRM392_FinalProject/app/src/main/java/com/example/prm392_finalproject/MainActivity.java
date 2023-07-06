@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -23,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         gun_skins.add(new Gun_skin(1,3,"Tuan",1200,R.drawable.ic_launcher_background));
         gun_skins.add(new Gun_skin(2,1,"Anh",1400,R.drawable.ic_launcher_background));
         gun_skins.add(new Gun_skin(3,2,"Vu",1000,R.drawable.ic_launcher_background));
-
     }
     private void bindingView() {
         rcv = findViewById(R.id.rcv);
@@ -41,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //Tuan Anh
         setContentView(R.layout.activity_listbundle);
         bindingView();
         bindingAction();
         fakeData();
         bindDataToRcvDictionary();
 //        setContentView(R.layout.activity_login);
+
     }
 }
