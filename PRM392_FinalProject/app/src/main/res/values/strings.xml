@@ -2,4 +2,6 @@
     <string name="app_name">PRM392_FinalProject</string>
     <string name="check_box_text">Lưu đăng nhập</string>
 
+    <string name="open_nav">Open</string>
+    <string name="close_nav">CLose</string>
 </resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+    <group
+         android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_bo"
+                android:icon="@drawable/nav_bo"
+                android:title="Bộ"/>
+        <item
+            android:id="@+id/nav_shop"
+            android:icon="@drawable/nav_shop"
+            android:title="Cửa Hàng"/>
+        <item
+            android:id="@+id/nav_chodem"
+            android:icon="@drawable/nav_chodem"
+            android:title="Chợ đêm"/>
+        <item
+            android:id="@+id/nav_hoso"
+            android:icon="@drawable/nav_hoso"
+            android:title="Hồ Sơ"/>
+        <item
+            android:id="@+id/nav_thuvien"
+            android:icon="@drawable/nav_thuvien"
+            android:title="Thư Viện"/>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/nav_settings"
+            android:title="Cài Đặt"/>
+
+
+
+
+    </group>
+</menu>
