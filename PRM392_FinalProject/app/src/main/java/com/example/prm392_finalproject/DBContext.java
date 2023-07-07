@@ -163,8 +163,8 @@ public class DBContext extends SQLiteOpenHelper {
         }
 
     public Cursor getGunLikeName(String name) {
-        String sql = "select * from Gun_skin where Gun_skin_name LIKE '%?%'";
-        return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+        String sql = "select * from Gun_skin where Gun_skin_name LIKE ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{"%" + name + "%"});
     }
 
 

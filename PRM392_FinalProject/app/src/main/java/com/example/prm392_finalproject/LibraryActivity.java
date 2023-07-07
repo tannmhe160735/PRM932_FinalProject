@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -54,10 +55,33 @@ public class LibraryActivity extends AppCompatActivity {
         igBtnSearch = findViewById(R.id.igBtnSearch);
         add_gun_button = findViewById(R.id.add_gun_button);
         dbContext = new DBContext(this);
+        getData();
     }
 
     public void bindingAction(){
         add_gun_button.setOnClickListener(this::onBtnAddGunClick);
+        igBtnSearch.setOnClickListener(this::onBtnSearchGunClick);
+    }
+
+    private void onBtnSearchGunClick(View view) {
+        gunSkins = new ArrayList<>();
+        String name = edtSearch.getText().toString().trim();
+        Cursor ps = dbContext.getGunLikeName(name);
+        if(ps == null){
+            return;
+        }
+        if (ps.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = ps.getInt(ps.getColumnIndex(DBContext.TABLE_GUN_SKIN_COL_GUN_ID));
+                @SuppressLint("Range") int bundle = ps.getInt(ps.getColumnIndex(DBContext.TABLE_GUN_SKIN_COL_BUNDLE));
+                @SuppressLint("Range") String gun_name = ps.getString(ps.getColumnIndex(DBContext.TABLE_GUN_SKIN_COL_GUN_NAME));
+                @SuppressLint("Range") int price = ps.getInt(ps.getColumnIndex(DBContext.TABLE_GUN_SKIN_COL_GUN_PRICE));
+                @SuppressLint("Range") String image = ps.getString(ps.getColumnIndex(DBContext.TABLE_GUN_SKIN_COL_GUN_IMAGE));
+                Gun_skin gun_skin = new Gun_skin(id, bundle, gun_name, price, image);
+                gunSkins.add(gun_skin);
+            } while (ps.moveToNext());
+        }
+        bindDataToRcvDictionary();
     }
 
     private void onBtnAddGunClick(View view) {
@@ -76,7 +100,6 @@ public class LibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_library);
         bindingView();
         bindingAction();
-        getData();
         bindDataToRcvDictionary();
     }
 }
