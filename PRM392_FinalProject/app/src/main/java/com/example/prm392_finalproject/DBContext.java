@@ -141,10 +141,32 @@ public class DBContext extends SQLiteOpenHelper {
         this.getWritableDatabase().execSQL(sql, new Object[]{name, Integer.parseInt(price), img_url, Integer.parseInt(bundle)});
     }
 
+    public void updateGun_Skin(String name, String price, String img_url, String bundle, String id) {
+        String sql = "update Gun_skin set Gun_skin_name = ?, Gun_price = ?, Gun_skin_image = ? , Bundle = ?  where Gun_id = ?;";
+        this.getWritableDatabase().execSQL(sql, new Object[]{name, Integer.parseInt(price), img_url, Integer.parseInt(bundle), Integer.parseInt(id)});
+    }
+
+    public void deleteGun_Skin(String id) {
+        String sql = "delete from Gun_skin where Gun_id = ?";
+        this.getWritableDatabase().execSQL(sql, new Object[]{Integer.parseInt(id)});
+    }
+
     public Cursor getAllGun() {
         String sql = "select * from Gun_skin";
         return this.getReadableDatabase()
                 .rawQuery(sql, new String[]{});
     }
+
+    public Cursor getGunByName(String name) {
+        String sql = "select * from Gun_skin where Gun_skin_name = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+        }
+
+    public Cursor getGunLikeName(String name) {
+        String sql = "select * from Gun_skin where Gun_skin_name LIKE '%?%'";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+    }
+
+
 
 }

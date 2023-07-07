@@ -9,6 +9,10 @@ public class Gun_skin {
     private int price;
     private String imageUrl;
 
+    public Gun_skin(){
+
+    };
+
     public Gun_skin(int id, int bundle, String name, int price, String imageUrl) {
         this.id = id;
         Bundle = bundle;
