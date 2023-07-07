@@ -1,13 +1,16 @@
 package com.example.prm392_finalproject;
 
 import android.content.Context;
-import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+
+import java.io.InputStream;
 
 public class Gun_SkinViewHolder extends RecyclerView.ViewHolder {
     private ImageView img;
@@ -30,10 +33,19 @@ public class Gun_SkinViewHolder extends RecyclerView.ViewHolder {
 
     }
 
+    private void bindImgLinkToImageView(String link, ImageView imageView) {
+        Glide
+                .with(context)
+                .load(link)
+                .placeholder(R.drawable.img_loading)
+                .error(R.drawable.img_crash)
+                .into(imageView);
+    }
+
     public void setGunskin(Gun_skin gun_skin) {
-        img.setImageResource(gun_skin.getImageId());
         tvname.setText(gun_skin.getName());
-        tvprice.setId(gun_skin.getPrice());
-        tvbundle.setId(gun_skin.getBundle());
+        tvprice.setText(String.valueOf(gun_skin.getPrice()));
+        tvbundle.setText(String.valueOf(gun_skin.getBundle()));
+        bindImgLinkToImageView(gun_skin.getImageUrl(), img);
     }
 }

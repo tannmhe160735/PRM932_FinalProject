@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SuspiciousIndentation")
     private void fakeData() {
         gun_skins = new ArrayList<>();
-        gun_skins.add(new Gun_skin(1,3,"Tuan",1200,R.drawable.ic_launcher_background));
-        gun_skins.add(new Gun_skin(2,1,"Anh",1400,R.drawable.ic_launcher_background));
-        gun_skins.add(new Gun_skin(3,2,"Vu",1000,R.drawable.ic_launcher_background));
+        gun_skins.add(new Gun_skin(1,3,"Tuan",1200,"https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp"));
+        gun_skins.add(new Gun_skin(2,1,"Anh",1400,"https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp"));
+        gun_skins.add(new Gun_skin(3,2,"Vu",1000,"https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp"));
     }
     private void bindingView() {
         rcv = findViewById(R.id.rcv);
