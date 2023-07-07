@@ -1,6 +1,8 @@
 package com.example.prm392_finalproject;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -56,7 +58,6 @@ public class DBContext extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 
     @Override
@@ -134,4 +135,16 @@ public class DBContext extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(user);
         sqLiteDatabase.execSQL(userprofile);
     }
+
+    public void insertGun_Skin(String name, String price, String img_url, String bundle) {
+        String sql = "insert into Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) values (?,?,?,?)";
+        this.getWritableDatabase().execSQL(sql, new Object[]{name, Integer.parseInt(price), img_url, Integer.parseInt(bundle)});
+    }
+
+    public Cursor getAllGun() {
+        String sql = "select * from Gun_skin";
+        return this.getReadableDatabase()
+                .rawQuery(sql, new String[]{});
+    }
+
 }
