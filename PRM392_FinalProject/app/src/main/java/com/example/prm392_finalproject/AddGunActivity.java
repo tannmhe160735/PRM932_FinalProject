@@ -22,11 +22,11 @@ public class AddGunActivity extends AppCompatActivity {
     private DBContext dbContext;
 
     private void bindingView(){
-        edtGunName = findViewById(R.id.edtGunName);
-        edtGunPrice = findViewById(R.id.edtGunPrice);
-        edtGunImage = findViewById(R.id.edtGunImage);
-        spinnerBundle = findViewById(R.id.spinnerBundle);
-        btnAddGun = findViewById(R.id.btnAddGun);
+        edtGunName = findViewById(R.id.edtUpdateGunName);
+        edtGunPrice = findViewById(R.id.edtUpdateGunPrice);
+        edtGunImage = findViewById(R.id.edtUpdateGunImage);
+        spinnerBundle = findViewById(R.id.spinnerUpdateBundle);
+        btnAddGun = findViewById(R.id.btnUpdateGun);
         ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Spectrum");
         arrayList.add("Elderflame");

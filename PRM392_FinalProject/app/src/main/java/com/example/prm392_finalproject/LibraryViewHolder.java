@@ -1,6 +1,7 @@
 package com.example.prm392_finalproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,13 +23,23 @@ public class LibraryViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void bindingAction(){
+        imageView.setOnClickListener(this::onBtnUpdateGunClick);
+        tvLibraryName.setOnClickListener(this::onBtnUpdateGunClick);
+        tvLibraryPrice.setOnClickListener(this::onBtnUpdateGunClick);
+    }
+
+    private void onBtnUpdateGunClick(View view) {
+        Intent i = new Intent(context, UpdateGunActivity.class);
+        String name = tvLibraryName.getText().toString();
+        i.putExtra("name", name);
+        context.startActivity(i);
     }
 
     public LibraryViewHolder(@NonNull View itemView, Context context) {
         super(itemView);
         this.context = context;
         bindingView();
-
+        bindingAction();
     }
 
     private void bindImgLinkToImageView(String link, ImageView imageView) {
