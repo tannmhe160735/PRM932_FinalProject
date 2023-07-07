@@ -29,28 +29,6 @@ public class LibraryActivity extends AppCompatActivity {
     private FloatingActionButton add_gun_button;
     private DBContext dbContext;
 
-//    private void fakeData() {
-//        gunSkins = new ArrayList<>();
-//        Gun_skin gunSkin1 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://static.wikia.nocookie.net/valorant/images/f/f4/SPECTRUM_Phantom.png/revision/latest?cb=20210908214445");
-//        Gun_skin gunSkin2 = new Gun_skin(1, 1, "Phantom", 9999, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin3 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin4 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin5 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin6 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin7 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin8 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        Gun_skin gunSkin9 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
-//        gunSkins.add(gunSkin1);
-//        gunSkins.add(gunSkin2);
-//        gunSkins.add(gunSkin3);
-//        gunSkins.add(gunSkin4);
-//        gunSkins.add(gunSkin5);
-//        gunSkins.add(gunSkin6);
-//        gunSkins.add(gunSkin7);
-//        gunSkins.add(gunSkin8);
-//        gunSkins.add(gunSkin9);
-//    }
-
     private void getData() {
         gunSkins = new ArrayList<>();
         Cursor ps = dbContext.getAllGun();
@@ -98,7 +76,6 @@ public class LibraryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_library);
         bindingView();
         bindingAction();
-//        fakeData();
         getData();
         bindDataToRcvDictionary();
     }
