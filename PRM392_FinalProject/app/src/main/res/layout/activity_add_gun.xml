@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddGunActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAddGun"
+        android:layout_width="267dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="63dp"
+        android:background="#ABFA4451"
+        android:backgroundTint="@null"
+        android:text="Add"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBundle" />
+
+    <EditText
+        android:id="@+id/edtGunPrice"
+        android:layout_width="267dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="63dp"
+        android:ems="10"
+        android:hint="Gun Price"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtGunName" />
+
+    <EditText
+        android:id="@+id/edtGunImage"
+        android:layout_width="267dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="63dp"
+        android:ems="10"
+        android:hint="Gun Image"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtGunPrice" />
+
+    <EditText
+        android:id="@+id/edtGunName"
+        android:layout_width="267dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="63dp"
+        android:ems="10"
+        android:hint="Gun Name"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerBundle"
+        android:layout_width="267dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="63dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtGunImage" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="166dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="169dp"
+        android:text="Add New Gun"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
