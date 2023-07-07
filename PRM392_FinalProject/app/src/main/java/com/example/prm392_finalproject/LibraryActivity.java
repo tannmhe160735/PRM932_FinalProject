@@ -22,15 +22,15 @@ public class LibraryActivity extends AppCompatActivity {
 
     private void fakeData() {
         gunSkins = new ArrayList<>();
-        Gun_skin gunSkin1 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin2 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin3 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin4 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin5 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin6 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin7 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin8 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
-        Gun_skin gunSkin9 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, R.drawable.ic_launcher_background);
+        Gun_skin gunSkin1 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://i.pinimg.com/236x/ca/fe/b2/cafeb2e288f830b582092fdcceea5dee.jpg");
+        Gun_skin gunSkin2 = new Gun_skin(1, 1, "Phantom", 9999, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin3 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin4 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin5 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin6 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin7 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin8 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
+        Gun_skin gunSkin9 = new Gun_skin(1, 1, "Phantom Quang Phổ", 2675, "https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp");
         gunSkins.add(gunSkin1);
         gunSkins.add(gunSkin2);
         gunSkins.add(gunSkin3);
