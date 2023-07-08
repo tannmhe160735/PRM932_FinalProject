@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -58,6 +58,12 @@ public class DBContext extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SHOP);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER_PROFILE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GUN_SKIN);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_BUNDLE);
+        onCreate(db);
     }
 
     @Override
@@ -129,11 +135,54 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Radianite_Point integer default 0,\n" +
                 "    Free_Agent      integer default 0\n" +
                 ");";
+        String insertBundle1 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Spectrum', 10700, 'https://static.wikia.nocookie.net/valorant/images/f/ff/Bundle_Spectrum.png/revision/latest/scale-to-width-down/1000?cb=20210908214612', '2023-07-01', '2023-08-01')";
+        String insertBundle2 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Elderflame', 9900, 'https://static.wikia.nocookie.net/valorant/images/f/fa/Bundle_Elderflame.png/revision/latest/scale-to-width-down/1000?cb=20200710132118', '2023-08-01', '2023-09-01')";
+        String insertBundle3 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Protocol 781-A', 9900, 'https://static.wikia.nocookie.net/valorant/images/7/76/Bundle_Protocol_781-A.png/revision/latest/scale-to-width-down/1000?cb=20220110184809', '2023-09-01', '2023-10-01')";
+        String insertBundle4 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Glitchpop', 8700, 'https://static.wikia.nocookie.net/valorant/images/1/10/Bundle_Glitchpop.png/revision/latest/scale-to-width-down/1000?cb=20200805001530', '2023-10-01', '2023-11-01')";
+        String insertBundle5 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Singularity', 8700, 'https://static.wikia.nocookie.net/valorant/images/e/e5/Bundle_Singularity.png/revision/latest?cb=20210715135127', '2023-11-01', '2023-12-01')";
+        String insertGunSkin1 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Phantom Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/f/f4/SPECTRUM_Phantom.png/revision/latest?cb=20210908214445', 1)";
+        String insertGunSkin2 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Classic Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/d/df/SPECTRUM_Classic.png/revision/latest?cb=20210908214458', 1)";
+        String insertGunSkin3 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Bulldog Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/0/0d/SPECTRUM_Bulldog.png/revision/latest?cb=20210908214451', 1)";
+        String insertGunSkin4 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Guardian Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/f/f5/SPECTRUM_Guardian.png/revision/latest?cb=20210908214456', 1)";
+        String insertGunSkin5 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Waveform', 2675, 'https://static.wikia.nocookie.net/valorant/images/e/e7/SPECTRUM_Waveform.png/revision/latest?cb=20210908214448', 1)";
+        String insertGunSkin6 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Vandal Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/d/d2/Elderflame_Vandal.png/revision/latest?cb=20210707203727', 2)";
+        String insertGunSkin7 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Frenzy Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/c/c4/Elderflame_Frenzy.png/revision/latest?cb=20210707203656', 2)";
+        String insertGunSkin8 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Judge Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/c/c6/Elderflame_Judge.png/revision/latest?cb=20210707203713', 2)";
+        String insertGunSkin9 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Operator Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/e/ed/Elderflame_Operator.png/revision/latest?cb=20210707203739', 2)";
+        String insertGunSkin10 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Dagger Elderframe', 4950, 'https://static.wikia.nocookie.net/valorant/images/a/a9/Elderflame_Dagger.png/revision/latest?cb=20210707185625', 2)";
+        String insertUser1 = "INSERT INTO User (User_name, Password, Role) VALUES ('Tan3z', '123', 1)";
+        String insertUser2 = "INSERT INTO User (User_name, Password, Role) VALUES ('Admin', '123', 2)";
+        String insertUserProfile1 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (1, 'Châu Á', 123, 435, 9999, 500, 0)";
+        String insertUserProfile2 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (2, 'Châu Á', 999, 999, 9999, 999, 0)";
+        String insertShop1 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (1, 1, 6, 3, 10, '2023-07-01', '2023-07-02')";
+        String insertShop2 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-01', '2023-07-02')";
+
         sqLiteDatabase.execSQL(bundle);
+        sqLiteDatabase.execSQL(insertBundle1);
+        sqLiteDatabase.execSQL(insertBundle2);
+        sqLiteDatabase.execSQL(insertBundle3);
+        sqLiteDatabase.execSQL(insertBundle4);
+        sqLiteDatabase.execSQL(insertBundle5);
         sqLiteDatabase.execSQL(gunskin);
-        sqLiteDatabase.execSQL(shop);
+        sqLiteDatabase.execSQL(insertGunSkin1);
+        sqLiteDatabase.execSQL(insertGunSkin2);
+        sqLiteDatabase.execSQL(insertGunSkin3);
+        sqLiteDatabase.execSQL(insertGunSkin4);
+        sqLiteDatabase.execSQL(insertGunSkin5);
+        sqLiteDatabase.execSQL(insertGunSkin6);
+        sqLiteDatabase.execSQL(insertGunSkin7);
+        sqLiteDatabase.execSQL(insertGunSkin8);
+        sqLiteDatabase.execSQL(insertGunSkin9);
+        sqLiteDatabase.execSQL(insertGunSkin10);
         sqLiteDatabase.execSQL(user);
+        sqLiteDatabase.execSQL(insertUser1);
+        sqLiteDatabase.execSQL(insertUser2);
         sqLiteDatabase.execSQL(userprofile);
+        sqLiteDatabase.execSQL(insertUserProfile1);
+        sqLiteDatabase.execSQL(insertUserProfile2);
+        sqLiteDatabase.execSQL(shop);
+        sqLiteDatabase.execSQL(insertShop1);
+        sqLiteDatabase.execSQL(insertShop2);
     }
 
     public void insertGun_Skin(String name, String price, String img_url, String bundle) {

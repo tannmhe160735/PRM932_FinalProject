@@ -2,6 +2,7 @@ package com.example.prm392_finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -58,6 +59,9 @@ public class AddGunActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Lưu thành công", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, LibraryActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override
