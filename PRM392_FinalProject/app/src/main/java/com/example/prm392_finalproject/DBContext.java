@@ -209,13 +209,23 @@ public class DBContext extends SQLiteOpenHelper {
     public Cursor getGunByName(String name) {
         String sql = "select * from Gun_skin where Gun_skin_name = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{name});
-        }
+    }
 
     public Cursor getGunLikeName(String name) {
         String sql = "select * from Gun_skin where Gun_skin_name LIKE ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{"%" + name + "%"});
     }
 
+    public Cursor getAllBundle() {
+        String sql = "select * from Bundle";
+        return this.getReadableDatabase()
+                .rawQuery(sql, new String[]{});
+    }
+
+    public Cursor getBundleByName(String name) {
+        String sql = "select * from Bundle where Bundle_name = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+    }
 
 
 }

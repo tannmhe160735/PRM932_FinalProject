@@ -1,0 +1,43 @@
+INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Spectrum', 10700, 'https://static.wikia.nocookie.net/valorant/images/f/ff/Bundle_Spectrum.png/revision/latest/scale-to-width-down/1000?cb=20210908214612', '2023-07-01', '2023-08-01')
+
+INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Elderflame', 9900, 'https://static.wikia.nocookie.net/valorant/images/f/fa/Bundle_Elderflame.png/revision/latest/scale-to-width-down/1000?cb=20200710132118', '2023-08-01', '2023-09-01')
+
+INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Protocol 781-A', 9900, 'https://static.wikia.nocookie.net/valorant/images/7/76/Bundle_Protocol_781-A.png/revision/latest/scale-to-width-down/1000?cb=20220110184809', '2023-09-01', '2023-10-01')
+
+INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Glitchpop', 8700, 'https://static.wikia.nocookie.net/valorant/images/1/10/Bundle_Glitchpop.png/revision/latest/scale-to-width-down/1000?cb=20200805001530', '2023-10-01', '2023-11-01')
+
+INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Singularity', 8700, 'https://static.wikia.nocookie.net/valorant/images/e/e5/Bundle_Singularity.png/revision/latest?cb=20210715135127', '2023-11-01', '2023-12-01')
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Phantom Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/f/f4/SPECTRUM_Phantom.png/revision/latest?cb=20210908214445', 1)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Classic Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/d/df/SPECTRUM_Classic.png/revision/latest?cb=20210908214458', 1)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Bulldog Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/0/0d/SPECTRUM_Bulldog.png/revision/latest?cb=20210908214451', 1)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Guardian Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/f/f5/SPECTRUM_Guardian.png/revision/latest?cb=20210908214456', 1)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Waveform', 2675, 'https://static.wikia.nocookie.net/valorant/images/e/e7/SPECTRUM_Waveform.png/revision/latest?cb=20210908214448', 1)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Vandal Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/d/d2/Elderflame_Vandal.png/revision/latest?cb=20210707203727', 2)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Frenzy Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/c/c4/Elderflame_Frenzy.png/revision/latest?cb=20210707203656', 2)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Judge Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/c/c6/Elderflame_Judge.png/revision/latest?cb=20210707203713', 2)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Operator Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/e/ed/Elderflame_Operator.png/revision/latest?cb=20210707203739', 2)
+
+INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Dagger Elderframe', 4950, 'https://static.wikia.nocookie.net/valorant/images/a/a9/Elderflame_Dagger.png/revision/latest?cb=20210707185625', 2)
+
+INSERT INTO User (User_name, Password, Role) VALUES ('Tan3z', '123', 1)
+
+INSERT INTO User (User_name, Password, Role) VALUES ('Admin', '123', 2)
+
+INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (1, 'Châu Á', 123, 435, 9999, 500, 0)
+
+INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (2, 'Châu Á', 999, 999, 9999, 999, 0)
+
+INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (1, 1, 6, 3, 10, '2023-07-01', '2023-07-02')
+
+INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-01', '2023-07-02')
+
+
