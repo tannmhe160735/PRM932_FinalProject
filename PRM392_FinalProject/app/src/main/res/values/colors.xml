@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#c44e4e</color>
+    <color name="red1">#FF0000</color>
     <color name="gray">#e4e4e4</color>
     <style name="checkbox">
         <item name="android:width">24dp</item>
