@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 8;
+    private static final int DB_VERSION = 10;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -46,6 +46,7 @@ public class DBContext extends SQLiteOpenHelper {
     public static final String TABLE_USER_COL_USER_NAME = "User_name";
     public static final String TABLE_USER_COL_PASSWORD = "Password";
     public static final String TABLE_USER_COL_ROLE = "Role";
+    public static final String TABLE_USER_COL_REMEMBER = "Remember";
 
     public static final String TABLE_USER_PROFILE = "User_Profile";
     public static final String TABLE_USER_PROFILE_COL_USER_ID = "User_id";
@@ -121,7 +122,8 @@ public class DBContext extends SQLiteOpenHelper {
                 "        unique,\n" +
                 "    User_name text                  not null,\n" +
                 "    Password  text                  not null,\n" +
-                "    Role      integer               not null\n" +
+                "    Role      integer               not null,\n" +
+                "    Remember  integer default 0 not null\n" +
                 ");";
         String userprofile = "create table User_Profile\n" +
                 "(\n" +
@@ -231,5 +233,17 @@ public class DBContext extends SQLiteOpenHelper {
         String sql = "select * from User where User_name = ? and Password = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{username, password});
     }
+
+    public Cursor getAllUser() {
+        String sql = "select * from User";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{});
+    }
+
+    public void updateUser_Remember(int remember, int id) {
+        String sql = "update User set Remember = ? where User_id = ?;";
+        this.getWritableDatabase().execSQL(sql, new Object[]{remember, id});
+    }
+
+
 
 }
