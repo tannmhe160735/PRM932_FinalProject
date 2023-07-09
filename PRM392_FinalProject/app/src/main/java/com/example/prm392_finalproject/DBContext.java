@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 8;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -116,12 +116,12 @@ public class DBContext extends SQLiteOpenHelper {
                 ");";
         String user = "create table User\n" +
                 "(\n" +
-                "    User_id   integer not null\n" +
+                "    User_id   integer               not null\n" +
                 "        primary key autoincrement\n" +
                 "        unique,\n" +
-                "    User_name text    not null,\n" +
-                "    Password  text    not null,\n" +
-                "    Role      integer not null\n" +
+                "    User_name text                  not null,\n" +
+                "    Password  text                  not null,\n" +
+                "    Role      integer               not null\n" +
                 ");";
         String userprofile = "create table User_Profile\n" +
                 "(\n" +
@@ -227,5 +227,9 @@ public class DBContext extends SQLiteOpenHelper {
         return this.getReadableDatabase().rawQuery(sql, new String[]{name});
     }
 
+    public Cursor Login(String username, String password) {
+        String sql = "select * from User where User_name = ? and Password = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{username, password});
+    }
 
 }
