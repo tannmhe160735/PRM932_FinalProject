@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 10;
+    private static final int DB_VERSION = 11;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -77,8 +77,8 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Bundle_name  nvarchar(100) not null,\n" +
                 "    Bundle_price integer       not null,\n" +
                 "    Bundle_Image text,\n" +
-                "    Date_start   text,\n" +
-                "    Date_end     text\n" +
+                "    Date_start   Date,\n" +
+                "    Date_end     Date\n" +
                 ");";
         String gunskin = "create table Gun_skin\n" +
                 "(\n" +
@@ -112,8 +112,8 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Gun_skin_4 integer not null\n" +
                 "        constraint Shop_Gun_skin_Gun_id_fk_4\n" +
                 "            references Gun_skin,\n" +
-                "    Date_start text,\n" +
-                "    Date_end   text\n" +
+                "    Date_start Date,\n" +
+                "    Date_end   Date\n" +
                 ");";
         String user = "create table User\n" +
                 "(\n" +
