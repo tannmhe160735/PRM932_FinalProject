@@ -6,15 +6,18 @@ public class User {
     private String Password;
     private int Role;
 
+    private boolean Remember;
+
     public User(){
 
     }
 
-    public User(int User_id, String User_name, String Password, int Role) {
+    public User(int User_id, String User_name, String Password, int Role, boolean Remember) {
         this.User_id = User_id;
         this.User_name = User_name;
         this.Password = Password;
         this.Role = Role;
+        this.Remember = Remember;
     }
 
     public int getUser_id() {
@@ -47,5 +50,13 @@ public class User {
 
     public void setRole(int role) {
         Role = role;
+    }
+
+    public boolean getRemember() {
+        return Remember;
+    }
+
+    public void setRemember(boolean remember) {
+        Remember = remember;
     }
 }
