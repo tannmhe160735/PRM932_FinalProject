@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/nav_bo"
+            android:title="@string/nav_bo"
+            android:icon="@drawable/ic_bo" />
+        <item android:id="@+id/nav_cuahang"
+            android:title="@string/nav_cuahang"
+            android:icon="@drawable/ic_cuahang" />
+        <item android:id="@+id/nav_chodem"
+            android:title="@string/nav_chodem"
+            android:icon="@drawable/ic_chodem" />
+        <item android:id="@+id/nav_hoso"
+            android:title="@string/nav_hoso"
+            android:icon="@drawable/ic_hoso" />
+        <item android:id="@+id/nav_thuvien"
+            android:title="@string/nav_thuvien"
+            android:icon="@drawable/ic_thuvien" />
+        <item android:id="@+id/nav_caidat"
+            android:title="@string/nav_caidat"
+            android:icon="@drawable/ic_caidat" />
+    </group>
+</menu>

@@ -7,14 +7,18 @@ public class Gun_skin {
     private int Bundle;
     private String name;
     private int price;
-    private int imageId;
+    private String imageUrl;
 
-    public Gun_skin(int id, int bundle, String name, int price, int imageId) {
+    public Gun_skin(){
+
+    };
+
+    public Gun_skin(int id, int bundle, String name, int price, String imageUrl) {
         this.id = id;
         Bundle = bundle;
         this.name = name;
         this.price = price;
-        this.imageId = imageId;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -33,12 +37,12 @@ public class Gun_skin {
         this.price = price;
     }
 
-    public int getImageId() {
-        return imageId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {

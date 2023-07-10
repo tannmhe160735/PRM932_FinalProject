@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">PRM392_FinalProject</string>
     <string name="check_box_text">Lưu đăng nhập</string>
-
-    <string name="open_nav">Open</string>
-    <string name="close_nav">CLose</string>
+    <string name="nav_bo">Bộ</string>
+    <string name="nav_cuahang">Cửa Hàng</string>
+    <string name="nav_chodem">Chợ Đêm</string>
+    <string name="nav_hoso">Hồ Sơ</string>
+    <string name="nav_thuvien">Thư Viện</string>
+    <string name="nav_caidat">Cài Đặt</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
