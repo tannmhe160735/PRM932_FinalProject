@@ -243,6 +243,11 @@ public class DBContext extends SQLiteOpenHelper {
         String sql = "update User set Remember = ? where User_id = ?;";
         this.getWritableDatabase().execSQL(sql, new Object[]{remember, id});
     }
+    public Cursor getInfoUser(String id) {
+
+        String sql = "select * from User_Profile where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{id});
+    }
 
 
 
