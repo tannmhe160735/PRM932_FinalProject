@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 2;
+    private static final int DB_VERSION = 11;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -46,6 +46,7 @@ public class DBContext extends SQLiteOpenHelper {
     public static final String TABLE_USER_COL_USER_NAME = "User_name";
     public static final String TABLE_USER_COL_PASSWORD = "Password";
     public static final String TABLE_USER_COL_ROLE = "Role";
+    public static final String TABLE_USER_COL_REMEMBER = "Remember";
 
     public static final String TABLE_USER_PROFILE = "User_Profile";
     public static final String TABLE_USER_PROFILE_COL_USER_ID = "User_id";
@@ -76,8 +77,8 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Bundle_name  nvarchar(100) not null,\n" +
                 "    Bundle_price integer       not null,\n" +
                 "    Bundle_Image text,\n" +
-                "    Date_start   text,\n" +
-                "    Date_end     text\n" +
+                "    Date_start   Date,\n" +
+                "    Date_end     Date\n" +
                 ");";
         String gunskin = "create table Gun_skin\n" +
                 "(\n" +
@@ -111,17 +112,18 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Gun_skin_4 integer not null\n" +
                 "        constraint Shop_Gun_skin_Gun_id_fk_4\n" +
                 "            references Gun_skin,\n" +
-                "    Date_start text,\n" +
-                "    Date_end   text\n" +
+                "    Date_start Date,\n" +
+                "    Date_end   Date\n" +
                 ");";
         String user = "create table User\n" +
                 "(\n" +
-                "    User_id   integer not null\n" +
+                "    User_id   integer               not null\n" +
                 "        primary key autoincrement\n" +
                 "        unique,\n" +
-                "    User_name text    not null,\n" +
-                "    Password  text    not null,\n" +
-                "    Role      integer not null\n" +
+                "    User_name text                  not null,\n" +
+                "    Password  text                  not null,\n" +
+                "    Role      integer               not null,\n" +
+                "    Remember  integer default 0 not null\n" +
                 ");";
         String userprofile = "create table User_Profile\n" +
                 "(\n" +
@@ -226,6 +228,22 @@ public class DBContext extends SQLiteOpenHelper {
         String sql = "select * from Bundle where Bundle_name = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{name});
     }
+
+    public Cursor Login(String username, String password) {
+        String sql = "select * from User where User_name = ? and Password = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{username, password});
+    }
+
+    public Cursor getAllUser() {
+        String sql = "select * from User";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{});
+    }
+
+    public void updateUser_Remember(int remember, int id) {
+        String sql = "update User set Remember = ? where User_id = ?;";
+        this.getWritableDatabase().execSQL(sql, new Object[]{remember, id});
+    }
+
 
 
 }

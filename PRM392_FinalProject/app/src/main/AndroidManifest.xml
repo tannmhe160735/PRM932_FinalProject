@@ -18,6 +18,9 @@
             android:name=".MenuActivity"
             android:exported="false" />
         <activity
+            android:name=".LibraryActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateGunActivity"
             android:exported="false" />
         <activity
@@ -27,7 +30,7 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".LibraryActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
