@@ -25,7 +25,7 @@ public class UpdateGunActivity extends AppCompatActivity {
     private Spinner spinnerUpdateBundle;
     private Button btnUpdateGun;
     private Button btnDeleteGun;
-    private DBContext dbContext;
+    private DBContext dbContext = new DBContext(this);
 
     private Gun_skin gun_skin;
 
@@ -38,18 +38,14 @@ public class UpdateGunActivity extends AppCompatActivity {
         btnUpdateGun = findViewById(R.id.btnUpdateGun);
         btnDeleteGun = findViewById(R.id.btnDeleteGun);
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("Spectrum");
-        arrayList.add("Elderflame");
-        arrayList.add("Protocol 781-A");
-        arrayList.add("Glitchpop");
-        arrayList.add("Singularity");
-        arrayList.add("BlastX");
-        arrayList.add("Radiant Entertainment System");
-        arrayList.add("");
+        ArrayList<com.example.prm392_finalproject.Bundle> bundles = getBundleList();
+        for (com.example.prm392_finalproject.Bundle item:
+                bundles) {
+            arrayList.add(item.getName());
+        }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerUpdateBundle.setAdapter(arrayAdapter);
-        dbContext = new DBContext(this);
     }
 
     private void bindingAction(){
@@ -66,6 +62,9 @@ public class UpdateGunActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Delete thành công", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, LibraryActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void onBtnUpdateGunClick(View view) {
@@ -73,14 +72,18 @@ public class UpdateGunActivity extends AppCompatActivity {
         String gun_name = edtUpdateGunName.getText().toString().trim();
         String gun_price = edtUpdateGunPrice.getText().toString().trim();
         String gun_image = edtUpdateGunImage.getText().toString().trim();
-        String bundle = String.valueOf(spinnerUpdateBundle.getSelectedItemPosition());
+        String bundle_name = spinnerUpdateBundle.getSelectedItem().toString();
+        com.example.prm392_finalproject.Bundle bundle = getBundle(bundle_name);
         try{
-            dbContext.updateGun_Skin(gun_name, gun_price, gun_image, bundle, gun_id);
+            dbContext.updateGun_Skin(gun_name, gun_price, gun_image, String.valueOf(bundle.getId()), gun_id);
         }catch (Exception ex){
             Toast.makeText(this, "Update thất bại", Toast.LENGTH_SHORT).show();
             return;
         }
         Toast.makeText(this, "Update thành công", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, LibraryActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void receivingIntent() {
@@ -104,7 +107,7 @@ public class UpdateGunActivity extends AppCompatActivity {
         edtUpdateGunName.setText(gun_skin.getName());
         edtUpdateGunPrice.setText(String.valueOf(gun_skin.getPrice()));
         edtUpdateGunImage.setText(gun_skin.getImageUrl());
-        spinnerUpdateBundle.setSelection(gun_skin.getBundle());
+        spinnerUpdateBundle.setSelection(gun_skin.getBundle()-1);
     }
 
     @Override
@@ -114,5 +117,41 @@ public class UpdateGunActivity extends AppCompatActivity {
         bindingView();
         bindingAction();
         receivingIntent();
+    }
+
+    private ArrayList<com.example.prm392_finalproject.Bundle> getBundleList(){
+        ArrayList<com.example.prm392_finalproject.Bundle> bundles= new ArrayList<>();
+        Cursor ps = dbContext.getAllBundle();
+        if(ps == null){
+            return null;
+        }
+        if (ps.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = ps.getInt(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_ID));
+                @SuppressLint("Range") String name = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_NAME));
+                com.example.prm392_finalproject.Bundle bundle = new com.example.prm392_finalproject.Bundle();
+                bundle.setId(id);
+                bundle.setName(name);
+                bundles.add(bundle);
+            } while (ps.moveToNext());
+        }
+        return bundles;
+    }
+
+    private com.example.prm392_finalproject.Bundle getBundle(String bundle_name){
+        com.example.prm392_finalproject.Bundle bundle = new com.example.prm392_finalproject.Bundle();
+        Cursor ps = dbContext.getBundleByName(bundle_name);
+        if(ps == null){
+            return null;
+        }
+        if (ps.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = ps.getInt(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_ID));
+                @SuppressLint("Range") String name = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_NAME));
+                bundle.setId(id);
+                bundle.setName(name);
+            } while (ps.moveToNext());
+        }
+        return bundle;
     }
 }
