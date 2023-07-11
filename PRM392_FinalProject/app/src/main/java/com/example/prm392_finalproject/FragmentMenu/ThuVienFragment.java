@@ -1,29 +1,35 @@
-package com.example.prm392_finalproject;
+package com.example.prm392_finalproject.FragmentMenu;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.SearchView;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.prm392_finalproject.AdapterLibrary;
+import com.example.prm392_finalproject.AddGunActivity;
+import com.example.prm392_finalproject.DBContext;
+import com.example.prm392_finalproject.Gun_skin;
+import com.example.prm392_finalproject.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryActivity extends AppCompatActivity {
+public class ThuVienFragment extends Fragment {
 
     private EditText edtSearch;
     private RecyclerView rcvLibrary;
@@ -31,7 +37,6 @@ public class LibraryActivity extends AppCompatActivity {
     private List<Gun_skin> gunSkins;
     private FloatingActionButton add_gun_button;
     private DBContext dbContext;
-
     private void getData() {
         gunSkins = new ArrayList<>();
         Cursor ps = dbContext.getAllGun();
@@ -51,12 +56,12 @@ public class LibraryActivity extends AppCompatActivity {
         }
     }
 
-    public void bindingView(){
-        edtSearch = findViewById(R.id.edtSearch);
-        rcvLibrary = findViewById(R.id.rcvLibrary);
-        igBtnSearch = findViewById(R.id.igBtnSearch);
-        add_gun_button = findViewById(R.id.add_gun_button);
-        dbContext = new DBContext(this);
+    public void bindingView(View v){
+        edtSearch = v.findViewById(R.id.edtSearch);
+        rcvLibrary = v.findViewById(R.id.rcvLibrary);
+        igBtnSearch = v.findViewById(R.id.igBtnSearch);
+        add_gun_button = v.findViewById(R.id.add_gun_button);
+        dbContext = new DBContext(v.getContext());
         getData();
     }
 
@@ -64,17 +69,9 @@ public class LibraryActivity extends AppCompatActivity {
         add_gun_button.setOnClickListener(this::onBtnAddGunClick);
         igBtnSearch.setOnClickListener(this::onBtnSearchGunClick);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_nav, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        getMenuInflater().inflate(R.menu.menu_nav, menu);
-        super.onCreateContextMenu(menu, v, menuInfo);
-    }
+
+
 
 
     private void onBtnSearchGunClick(View view) {
@@ -95,26 +92,31 @@ public class LibraryActivity extends AppCompatActivity {
                 gunSkins.add(gun_skin);
             } while (ps.moveToNext());
         }
-        bindDataToRcvDictionary();
+        bindDataToRcvDictionary(view);
     }
 
     private void onBtnAddGunClick(View view) {
-        Intent i = new Intent(this, AddGunActivity.class);
-        startActivity(i);
+//        Intent i = new Intent(this, view.AddGunActivity.class);
+//        startActivity(i);
     }
 
-    private void bindDataToRcvDictionary() {
-        rcvLibrary.setLayoutManager(new LinearLayoutManager(this));
-        rcvLibrary.setAdapter(new AdapterLibrary(this,gunSkins));
+    private void bindDataToRcvDictionary(View v) {
+        rcvLibrary.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        rcvLibrary.setAdapter(new AdapterLibrary(v.getContext(),gunSkins));
     }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library);
-        bindingView();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        bindingView(view);
         bindingAction();
-        bindDataToRcvDictionary();
+        bindDataToRcvDictionary(view);
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.activity_library, container, false);
+    }
 }
