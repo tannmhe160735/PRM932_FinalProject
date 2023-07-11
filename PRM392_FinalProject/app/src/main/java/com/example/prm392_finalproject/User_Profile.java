@@ -11,6 +11,7 @@ public class User_Profile {
     public User_Profile(){
     };
 
+
     public User_Profile(int user_id, String Server, int level , int exp, int radianite_Point, int valorant_Point, int free_Agent) {
         User_id = user_id;
         this.Server = Server;
@@ -19,6 +20,7 @@ public class User_Profile {
         this.Valorant_Point =valorant_Point;
         this.Radianite_Point =radianite_Point;
         this.Free_Agent =free_Agent;
+
     }
 
     public int getUser_id() {
