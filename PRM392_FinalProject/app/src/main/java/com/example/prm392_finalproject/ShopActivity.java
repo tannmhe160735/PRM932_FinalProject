@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -24,9 +25,9 @@ public class ShopActivity extends AppCompatActivity {
     private List<Gun_skin> gunSkins;
     private Shop shop;
     private DBContext dbContext;
-
+    private String userid;
     private void getData() {
-        int Useid = 1;
+        int Useid = Integer.parseInt(userid);
         shop = new Shop();
         Cursor ps = dbContext.getShopByUser(Useid);
         if (ps == null) {
@@ -38,7 +39,7 @@ public class ShopActivity extends AppCompatActivity {
                 @SuppressLint("Range") int gunskin1 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_1));
                 @SuppressLint("Range") int gunskin2 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_2));
                 @SuppressLint("Range") int gunskin3 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_3));
-                @SuppressLint("Range") int gunskin4 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_3));
+                @SuppressLint("Range") int gunskin4 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_4));
                 @SuppressLint("Range") String datestart = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_START));
                 @SuppressLint("Range") String dateend = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_END));
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -88,6 +89,10 @@ public class ShopActivity extends AppCompatActivity {
         public void bindingView(){
             tvDate = findViewById(R.id.txtDateShop);
             rcvShop = findViewById(R.id.rcvShop);
+            //get Userid session
+            SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, v.getContext().MODE_PRIVATE);
+            userid = sharedpreferences.getString("Userid", null);
+            //
             dbContext = new DBContext(this);
             getData();
         }
