@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -21,13 +22,20 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edt_password;
     private CheckBox checkBox;
     private ImageButton btn_login;
+    SharedPreferences sharedpreferences;
+    SharedPreferences.Editor editor;
     private DBContext dbContext;
+
+    public static final String Userid = "Userid";
+    public static final String MyPREFERENCES = "MyPrefs" ;
 
     private void bindingView(){
         edt_username = findViewById(R.id.edt_username);
         edt_password = findViewById(R.id.edt_password);
         checkBox = findViewById(R.id.checkBox);
         btn_login = findViewById(R.id.btn_login);
+        sharedpreferences = getSharedPreferences(MyPREFERENCES, this.MODE_PRIVATE);
+        editor = sharedpreferences.edit();
         dbContext = new DBContext(this);
         for (User item: getAllUser()) {
             if(item.getRemember() == true){
@@ -51,6 +59,10 @@ public class LoginActivity extends AppCompatActivity {
             }else{
                 dbContext.updateUser_Remember(0, user.getUser_id());
             }
+            //add userid like session
+            editor.putString(Userid, String.valueOf(user.getUser_id()));
+            editor.commit();
+            //
             Intent i = new Intent(this, MenuActivity.class);
             startActivity(i);
             Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();

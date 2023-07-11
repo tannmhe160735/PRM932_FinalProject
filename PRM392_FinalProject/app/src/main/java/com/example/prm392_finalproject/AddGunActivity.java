@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -58,7 +59,7 @@ public class AddGunActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Lưu thành công", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, LibraryActivity.class);
+        Intent i = new Intent(this, MenuActivity.class);
         startActivity(i);
         finish();
     }
@@ -105,5 +106,24 @@ public class AddGunActivity extends AppCompatActivity {
             } while (ps.moveToNext());
         }
         return bundle;
+    }
+
+    private User getUser(String UserId) {
+        User user = new User();
+        Cursor ps = dbContext.getUserById(UserId);
+        if(ps.getCount() < 1){
+            return null;
+        }
+        if (ps.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = ps.getInt(ps.getColumnIndex(DBContext.TABLE_USER_COL_USER_ID));
+                @SuppressLint("Range") String name = ps.getString(ps.getColumnIndex(DBContext.TABLE_USER_COL_USER_NAME));
+                @SuppressLint("Range") String pass = ps.getString(ps.getColumnIndex(DBContext.TABLE_USER_COL_PASSWORD));
+                @SuppressLint("Range") int role = ps.getInt(ps.getColumnIndex(DBContext.TABLE_USER_COL_ROLE));
+                @SuppressLint("Range") boolean remember = (ps.getInt(ps.getColumnIndex(DBContext.TABLE_USER_COL_REMEMBER)) > 0);
+                user = new User(id, name, pass, role, remember);
+            } while (ps.moveToNext());
+        }
+        return user;
     }
 }
