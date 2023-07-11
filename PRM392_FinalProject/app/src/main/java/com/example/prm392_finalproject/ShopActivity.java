@@ -27,9 +27,13 @@ public class ShopActivity extends AppCompatActivity {
     private DBContext dbContext;
     private String userid;
     private void getData() {
+        Calendar calendar = Calendar.getInstance();
+        int y = calendar.get(Calendar.YEAR);
+        int m = calendar.get(Calendar.MONTH) +1;
+        int d = calendar.get(Calendar.DAY_OF_MONTH);
         int Useid = Integer.parseInt(userid);
         shop = new Shop();
-        Cursor ps = dbContext.getShopByUser(Useid);
+        Cursor ps = dbContext.getShopByUser(Useid,y,m,d);
         if (ps == null) {
             return;
         }

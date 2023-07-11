@@ -23,6 +23,7 @@ import com.example.prm392_finalproject.Shop;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -34,9 +35,13 @@ public class CuaHangFragment extends Fragment {
     private DBContext dbContext;
 
     private void getData(View view) {
+        Calendar calendar = Calendar.getInstance();
+        int y = calendar.get(Calendar.YEAR);
+        int m = calendar.get(Calendar.MONTH) +1;
+        int d = calendar.get(Calendar.DAY_OF_MONTH);
         int Useid = 1;
         shop = new Shop();
-        Cursor ps = dbContext.getShopByUser(Useid);
+        Cursor ps = dbContext.getShopByUser(Useid,y,m,d);
         if (ps == null) {
             return;
         }
@@ -61,6 +66,7 @@ public class CuaHangFragment extends Fragment {
                 }
             } while (ps.moveToNext());
         }
+
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String datestring = dateFormat.format(shop.getDate_end());
         tvDate.setText("End date:" + datestring);
