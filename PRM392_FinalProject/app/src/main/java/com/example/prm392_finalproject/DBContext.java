@@ -8,9 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.time.format.DateTimeFormatter;
+
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 11;
+    private static final int DB_VERSION = 13;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -208,9 +210,14 @@ public class DBContext extends SQLiteOpenHelper {
                 .rawQuery(sql, new String[]{});
     }
 
+
     public Cursor getGunByName(String name) {
         String sql = "select * from Gun_skin where Gun_skin_name = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+    }
+    public Cursor getGunBybundle(int bundleid) {
+        String sql = "select * from Gun_skin where Bundle = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(bundleid)});
     }
 
     public Cursor getGunLikeName(String name) {
@@ -227,6 +234,11 @@ public class DBContext extends SQLiteOpenHelper {
     public Cursor getBundleByName(String name) {
         String sql = "select * from Bundle where Bundle_name = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+    }
+    public Cursor getBundleByDate(int year, int month) {
+        String sql = "SELECT * FROM Bundle WHERE strftime('%Y', Date_start) = ? and strftime('%m', Date_start) = ? and strftime('%d', Date_start) = '01'";
+        String monthFormatted = String.format("%02d", month);
+        return this.getReadableDatabase().rawQuery(sql, new String[]{String.valueOf(year),monthFormatted});
     }
 
     public Cursor Login(String username, String password) {

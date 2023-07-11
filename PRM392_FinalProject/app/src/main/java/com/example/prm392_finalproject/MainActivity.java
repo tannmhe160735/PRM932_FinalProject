@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         gun_skins.add(new Gun_skin(3,2,"Vu",1000,"https://valorantinfo.com/images/vn/spectrum-phantom_valorant_full_skin_154393.webp"));
     }
     private void bindingView() {
-        rcv = findViewById(R.id.rcv);
+        rcv = findViewById(R.id.rcvGun);
         txttilte = findViewById(R.id.TitleBunder);
         txtprice = findViewById(R.id.BunderPrice);
     }
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Tuan Anh
-        setContentView(R.layout.activity_listbundle);
+        setContentView(R.layout.activity_bundle);
         bindingView();
         bindingAction();
         fakeData();
