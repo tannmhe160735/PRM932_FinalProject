@@ -225,7 +225,7 @@ public class DBContext extends SQLiteOpenHelper {
     }
 
     public Cursor getGunByGunId(int gun_id){
-        String sql = "select * from Gun_skin where Gun_id";
+        String sql = "select * from Gun_skin where Gun_id = ?";
         return this.getReadableDatabase().rawQuery(sql,new String[]{String.valueOf(gun_id)});
     }
 

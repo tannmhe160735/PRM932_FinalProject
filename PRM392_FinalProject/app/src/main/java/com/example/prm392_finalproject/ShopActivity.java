@@ -56,8 +56,7 @@ public class ShopActivity extends AppCompatActivity {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         String datestring = dateFormat.format(shop.getDate_end());
         tvDate.setText("End date:" + datestring);
-        ArrayList<Gun_skin>
-                gunSkins = new ArrayList<>();
+        gunSkins = new ArrayList<>();
         int id1 = shop.getGun1();
         int id2 = shop.getGun2();
         int id3 = shop.getGun3();
