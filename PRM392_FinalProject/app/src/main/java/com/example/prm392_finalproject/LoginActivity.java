@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             editor.putString(Userid, String.valueOf(user.getUser_id()));
             editor.commit();
             //
-            Intent i = new Intent(this, RegisterActivity.class);
+            Intent i = new Intent(this, MenuActivity.class);
             startActivity(i);
             Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
             finish();

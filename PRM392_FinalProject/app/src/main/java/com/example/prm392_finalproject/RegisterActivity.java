@@ -40,24 +40,24 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void onBtnRegisterClick(View view) {
         String username = edt_register_username.getText().toString();
-        String password = edt_register_username.getText().toString();
-        String repassword = edt_register_username.getText().toString();
+        String password = edt_register_password.getText().toString();
+        String repassword = edt_register_repassword.getText().toString();
         boolean checkUser = getUser(username);
         if(!checkUser) {
-            if(password == repassword){
+            if(password.equals(repassword)){
                 try{
                     dbContext.registerUser(username, password);
-                    Toast.makeText(this, "Đăng Ký Thành Công", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "Đăng Ký Thành Công", Toast.LENGTH_SHORT).show();
                     finish();
                 }catch (Exception ex){
-                    Toast.makeText(this, "Đăng Ký Thất Bại", Toast.LENGTH_SHORT);
+                    Toast.makeText(this, "Đăng Ký Thất Bại", Toast.LENGTH_SHORT).show();
                 }
             }
             else{
-                Toast.makeText(this, "2 Mật Khẩu Không Giống Nhau", Toast.LENGTH_SHORT);
+                Toast.makeText(this, "2 Mật Khẩu Không Giống Nhau", Toast.LENGTH_SHORT).show();
             }
         }else{
-            Toast.makeText(this, "Người Dùng Này Đã Tồn Tại", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Người Dùng Này Đã Tồn Tại", Toast.LENGTH_SHORT).show();
         }
     }
 
