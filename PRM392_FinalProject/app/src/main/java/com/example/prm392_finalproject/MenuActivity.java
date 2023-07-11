@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.prm392_finalproject.FragmentMenu.BoFragment;
 import com.example.prm392_finalproject.FragmentMenu.CaiDatFragment;
 import com.example.prm392_finalproject.FragmentMenu.HosoFragment;
 import com.example.prm392_finalproject.FragmentMenu.ThuVienFragment;
@@ -52,6 +53,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_bo){
+            if(mCurrentFragment !=  FRAGMENT_BO){
+                replaceFragment(new BoFragment());
+                mCurrentFragment = FRAGMENT_BO;
+            }
 
         }else if (id == R.id.nav_cuahang){
 
