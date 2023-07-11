@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 11;
+    private static final int DB_VERSION = 12;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -244,6 +244,10 @@ public class DBContext extends SQLiteOpenHelper {
         this.getWritableDatabase().execSQL(sql, new Object[]{remember, id});
     }
 
+    public Cursor getUserById(String user_id) {
+        String sql = "select * from User where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{user_id});
+    }
 
 
 }

@@ -40,4 +40,5 @@ INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_
 
 INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-01', '2023-07-02')
 
+INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('BlastX', 8700, 'https://static.wikia.nocookie.net/valorant/images/6/66/Bundle_BlastX.png/revision/latest/scale-to-width-down/1000?cb=20210715135522', '2024-01-01', '2024-02-01')
 

@@ -3,6 +3,7 @@ package com.example.prm392_finalproject.FragmentMenu;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +25,7 @@ import com.example.prm392_finalproject.AdapterLibrary;
 import com.example.prm392_finalproject.AddGunActivity;
 import com.example.prm392_finalproject.DBContext;
 import com.example.prm392_finalproject.Gun_skin;
+import com.example.prm392_finalproject.LoginActivity;
 import com.example.prm392_finalproject.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -37,6 +40,7 @@ public class ThuVienFragment extends Fragment {
     private List<Gun_skin> gunSkins;
     private FloatingActionButton add_gun_button;
     private DBContext dbContext;
+    private String userid;
     private void getData() {
         gunSkins = new ArrayList<>();
         Cursor ps = dbContext.getAllGun();
@@ -61,6 +65,13 @@ public class ThuVienFragment extends Fragment {
         rcvLibrary = v.findViewById(R.id.rcvLibrary);
         igBtnSearch = v.findViewById(R.id.igBtnSearch);
         add_gun_button = v.findViewById(R.id.add_gun_button);
+        //get Userid session
+        SharedPreferences sharedpreferences = v.getContext().getSharedPreferences(LoginActivity.MyPREFERENCES, v.getContext().MODE_PRIVATE);
+        userid = sharedpreferences.getString("Userid", null);
+        if(Integer.parseInt(userid) == 1){
+            add_gun_button.setVisibility(View.INVISIBLE);
+        }
+        //
         dbContext = new DBContext(v.getContext());
         getData();
     }
@@ -69,10 +80,6 @@ public class ThuVienFragment extends Fragment {
         add_gun_button.setOnClickListener(this::onBtnAddGunClick);
         igBtnSearch.setOnClickListener(this::onBtnSearchGunClick);
     }
-
-
-
-
 
     private void onBtnSearchGunClick(View view) {
         gunSkins = new ArrayList<>();
@@ -96,8 +103,8 @@ public class ThuVienFragment extends Fragment {
     }
 
     private void onBtnAddGunClick(View view) {
-//        Intent i = new Intent(this, view.AddGunActivity.class);
-//        startActivity(i);
+        Intent i = new Intent(view.getContext(), AddGunActivity.class);
+        startActivity(i);
     }
 
     private void bindDataToRcvDictionary(View v) {
