@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+<TextView
+    android:id="@+id/textView3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Số dư"
+    android:textColor="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.21"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.659" />
+
+<TextView
+android:id="@+id/textView5"
+android:layout_width="wrap_content"
+android:layout_height="20dp"
+android:text="Thông tin"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.204"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.3" />
+
+<TextView
+    android:id="@+id/textView4"
+    android:layout_width="wrap_content"
+    android:layout_height="20dp"
+    android:text="Quá trình"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.224"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.441"
+    />
+
+<TextView
+android:id="@+id/textView"
+android:layout_width="73dp"
+android:layout_height="21dp"
+android:layout_marginTop="120dp"
+android:layout_marginBottom="500dp"
+android:text="MinhDao"
+android:textAlignment="center"
+android:textColor="@color/white"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.579"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.098" />
+
+<TextView
+android:id="@+id/textView2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="95dp"
+android:layout_marginEnd="259dp"
+android:text="Cấp"
+    android:textColor="@color/white"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.375"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+android:id="@+id/textView6"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Kinh Nghiệm"
+    android:textColor="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.317"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.578" />
+
+<TextView
+android:id="@+id/textView7"
+android:layout_width="18dp"
+android:layout_height="17dp"
+android:layout_marginStart="107dp"
+android:layout_marginEnd="286dp"
+android:text="163"
+android:textSize="12dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="1.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.543" />
+
+<TextView
+android:id="@+id/textView8"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="107dp"
+android:layout_marginEnd="272dp"
+android:text="4864"
+android:textSize="12dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.618" />
+
+<TextView
+android:id="@+id/textView9"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="10dp"
+    android:textColor="@color/white"
+android:text="Vùng"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.233"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.339" />
+
+<TextView
+android:id="@+id/textView10"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="94dp"
+android:layout_marginEnd="272dp"
+android:text="Châu Á"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.384" />
+
+<TextView
+android:id="@+id/textView11"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Điểm Valorant"
+    android:textColor="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.325"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.701" />
+
+<TextView
+android:id="@+id/textView12"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="105dp"
+android:layout_marginEnd="285dp"
+android:text="270"
+android:textSize="12dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.734" />
+
+<TextView
+android:id="@+id/textView13"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="105dp"
+android:layout_marginEnd="211dp"
+android:text="Điểm Radianite"
+    android:textColor="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.771" />
+
+<TextView
+android:id="@+id/textView14"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="105dp"
+android:layout_marginEnd="285dp"
+android:text="550"
+android:textSize="12dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="1.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.808" />
+
+<TextView
+android:id="@+id/textView15"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="106dp"
+android:layout_marginEnd="192dp"
+android:text="Nhân vật miễn phí"
+    android:textColor="@color/white"
+    app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.0"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.862" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="8dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginEnd="295dp"
+        android:text="0"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.895" />
+
+<ImageView
+android:id="@+id/imageView3"
+android:layout_width="20dp"
+android:layout_height="20dp"
+android:background="@color/black"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.184"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.703"
+app:srcCompat="@drawable/valorantpoints" />
+
+<ImageView
+android:id="@+id/imageView4"
+android:layout_width="20dp"
+android:layout_height="20dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.184"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.499"
+app:srcCompat="@drawable/baseline_keyboard_double_arrow_up_24" />
+
+<ImageView
+android:id="@+id/imageView5"
+android:layout_width="20dp"
+android:layout_height="20dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.184"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.577"
+app:srcCompat="@drawable/baseline_keyboard_double_arrow_up_24" />
+
+<ImageView
+android:id="@+id/imageView6"
+android:layout_width="103dp"
+android:layout_height="118dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.292"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.128"
+app:srcCompat="@drawable/meo" />
+
+<ImageView
+android:id="@+id/imageView7"
+android:layout_width="21dp"
+android:layout_height="21dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.184"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.77"
+app:srcCompat="@drawable/radianitepoints" />
+
+<ImageView
+android:id="@+id/imageView8"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginStart="16dp"
+android:layout_marginEnd="25dp"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintHorizontal_bias="0.162"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintVertical_bias="0.863"
+app:srcCompat="@drawable/baseline_people_24" />
+
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.332"
+        app:srcCompat="@drawable/icon_earth" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
