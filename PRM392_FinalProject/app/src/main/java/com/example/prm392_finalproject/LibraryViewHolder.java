@@ -2,6 +2,7 @@ package com.example.prm392_finalproject;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,16 +17,23 @@ public class LibraryViewHolder extends RecyclerView.ViewHolder {
     private TextView tvLibraryName;
     private TextView tvLibraryPrice;
     private Context context;
+    String userid;
     private void bindingView() {
         imageView = itemView.findViewById(R.id.imageView);
         tvLibraryName = itemView.findViewById(R.id.tvLibraryName);
         tvLibraryPrice = itemView.findViewById(R.id.tvLibraryPrice);
+        //get Userid session
+        SharedPreferences sharedpreferences = context.getSharedPreferences(LoginActivity.MyPREFERENCES, context.MODE_PRIVATE);
+        userid = sharedpreferences.getString("Userid", null);
+        //
     }
 
     private void bindingAction(){
-        imageView.setOnClickListener(this::onBtnUpdateGunClick);
-        tvLibraryName.setOnClickListener(this::onBtnUpdateGunClick);
-        tvLibraryPrice.setOnClickListener(this::onBtnUpdateGunClick);
+        if(Integer.parseInt(userid) == 2){
+            imageView.setOnClickListener(this::onBtnUpdateGunClick);
+            tvLibraryName.setOnClickListener(this::onBtnUpdateGunClick);
+            tvLibraryPrice.setOnClickListener(this::onBtnUpdateGunClick);
+        }
     }
 
     private void onBtnUpdateGunClick(View view) {

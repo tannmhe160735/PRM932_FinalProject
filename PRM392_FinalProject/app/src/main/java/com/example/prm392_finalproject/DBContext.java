@@ -154,6 +154,13 @@ public class DBContext extends SQLiteOpenHelper {
         String insertGunSkin8 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Judge Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/c/c6/Elderflame_Judge.png/revision/latest?cb=20210707203713', 2)";
         String insertGunSkin9 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Operator Elderframe', 2475, 'https://static.wikia.nocookie.net/valorant/images/e/ed/Elderflame_Operator.png/revision/latest?cb=20210707203739', 2)";
         String insertGunSkin10 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Dagger Elderframe', 4950, 'https://static.wikia.nocookie.net/valorant/images/a/a9/Elderflame_Dagger.png/revision/latest?cb=20210707185625', 2)";
+        String insertGunSkin11 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Vandal Glitchpop', 2175, 'https://static.wikia.nocookie.net/valorant/images/a/ab/Glitchpop_Vandal.png/revision/latest?cb=20210708105142', 4)";
+        String insertGunSkin12 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Phantom Glitchpop', 2175, 'https://static.wikia.nocookie.net/valorant/images/7/74/Glitchpop_Phantom.png/revision/latest?cb=20210708105123', 4)";
+        String insertGunSkin13 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Classic Glitchpop', 2175, 'https://static.wikia.nocookie.net/valorant/images/6/65/Glitchpop_Classic.png/revision/latest?cb=20210708105113', 4)";
+        String insertGunSkin14 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Frenzy Glitchpop', 2175, 'https://static.wikia.nocookie.net/valorant/images/c/cd/Glitchpop_Frenzy.png/revision/latest?cb=20210708102002', 4)";
+        String insertGunSkin15 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Operator Glitchpop', 2175, 'https://static.wikia.nocookie.net/valorant/images/e/e4/Glitchpop_Operator.png/revision/latest?cb=20210708105151', 4)";
+        String insertGunSkin16 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Axe Glitchpop', 4350, 'https://static.wikia.nocookie.net/valorant/images/0/01/Glitchpop_Axe.png/revision/latest?cb=20210708105045', 4)";
+        String insertGunSkin17 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Dagger Glitchpopp', 4350, 'https://static.wikia.nocookie.net/valorant/images/5/55/Glitchpop_Dagger.png/revision/latest?cb=20210707185641', 4)";
         String insertUser1 = "INSERT INTO User (User_name, Password, Role) VALUES ('Tan3z', '123', 1)";
         String insertUser2 = "INSERT INTO User (User_name, Password, Role) VALUES ('Admin', '123', 2)";
         String insertUserProfile1 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (1, 'Châu Á', 123, 435, 9999, 500, 0)";
@@ -178,6 +185,13 @@ public class DBContext extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertGunSkin8);
         sqLiteDatabase.execSQL(insertGunSkin9);
         sqLiteDatabase.execSQL(insertGunSkin10);
+        sqLiteDatabase.execSQL(insertGunSkin11);
+        sqLiteDatabase.execSQL(insertGunSkin12);
+        sqLiteDatabase.execSQL(insertGunSkin13);
+        sqLiteDatabase.execSQL(insertGunSkin14);
+        sqLiteDatabase.execSQL(insertGunSkin15);
+        sqLiteDatabase.execSQL(insertGunSkin16);
+        sqLiteDatabase.execSQL(insertGunSkin17);
         sqLiteDatabase.execSQL(user);
         sqLiteDatabase.execSQL(insertUser1);
         sqLiteDatabase.execSQL(insertUser2);
@@ -255,7 +269,29 @@ public class DBContext extends SQLiteOpenHelper {
         String sql = "update User set Remember = ? where User_id = ?;";
         this.getWritableDatabase().execSQL(sql, new Object[]{remember, id});
     }
+    public Cursor getInfoUser(String id) {
 
+        String sql = "select * from User_Profile where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{id});
+    }
 
+    public Cursor getUserById(String user_id) {
+        String sql = "select * from User where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{user_id});
+    }
 
+    public Cursor getUserByName(String name) {
+        String sql = "select * from User where User_name = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{name});
+    }
+
+    public void registerUser(String username, String password) {
+        String sql = "INSERT INTO User (User_name, Password, Role) VALUES (?, ?, 1)";
+        this.getWritableDatabase().execSQL(sql, new Object[]{username, password});
+    }
+
+    public Cursor getUserProfileById(String Userid){
+        String sql = "select * from User_Profile where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{Userid});
+    }
 }

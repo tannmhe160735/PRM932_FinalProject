@@ -18,7 +18,10 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuActivity"
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".LibraryActivity"
@@ -29,6 +32,10 @@
         <activity
             android:name=".AddGunActivity"
             android:exported="false" />
+        <activity
+         android:name=".MenuActivity"
+         android:exported="false"
+        />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
