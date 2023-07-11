@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 13;
+    private static final int DB_VERSION = 15;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -165,8 +165,8 @@ public class DBContext extends SQLiteOpenHelper {
         String insertUser2 = "INSERT INTO User (User_name, Password, Role) VALUES ('Admin', '123', 2)";
         String insertUserProfile1 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (1, 'Châu Á', 123, 435, 9999, 500, 0)";
         String insertUserProfile2 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (2, 'Châu Á', 999, 999, 9999, 999, 0)";
-        String insertShop1 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (1, 1, 6, 3, 10, '2023-07-11', '2023-07-12')";
-        String insertShop2 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-12', '2023-07-13')";
+        String insertShop1 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (1, 1, 6, 3, 10, '2023-07-12', '2023-07-13')";
+        String insertShop2 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-13', '2023-07-14')";
 
         sqLiteDatabase.execSQL(bundle);
         sqLiteDatabase.execSQL(insertBundle1);
@@ -299,8 +299,10 @@ public class DBContext extends SQLiteOpenHelper {
         String sql = "select * from User_Profile where User_id = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{Userid});
     }
-    public  Cursor getShopByUser(int Userid){
-        String sql = "select * from Shop where User_id = ?";
-        return this.getReadableDatabase().rawQuery(sql,new String[]{String.valueOf(Userid)});
+    public  Cursor getShopByUser(int Userid ,int year, int month,int day){
+        String sql = "SELECT * FROM Shop WHERE strftime('%Y', Date_start) = ? and strftime('%m', Date_start) = ? and strftime('%d', Date_start) = ? and User_id = ?";
+        String monthFormatted = String.format("%02d", month);
+        String dayFormatted = String.format("%02d",day);
+        return this.getReadableDatabase().rawQuery(sql, new String[]{ String.valueOf(year),monthFormatted,dayFormatted,String.valueOf(Userid)});
     }
 }
