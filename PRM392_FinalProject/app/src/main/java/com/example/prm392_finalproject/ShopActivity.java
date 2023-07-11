@@ -90,7 +90,7 @@ public class ShopActivity extends AppCompatActivity {
             tvDate = findViewById(R.id.txtDateShop);
             rcvShop = findViewById(R.id.rcvShop);
             //get Userid session
-            SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, v.getContext().MODE_PRIVATE);
+            SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, this.MODE_PRIVATE);
             userid = sharedpreferences.getString("Userid", null);
             //
             dbContext = new DBContext(this);

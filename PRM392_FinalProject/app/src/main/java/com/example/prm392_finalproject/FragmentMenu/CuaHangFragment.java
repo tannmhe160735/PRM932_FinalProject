@@ -46,7 +46,7 @@ public class CuaHangFragment extends Fragment {
                 @SuppressLint("Range") int gunskin1 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_1));
                 @SuppressLint("Range") int gunskin2 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_2));
                 @SuppressLint("Range") int gunskin3 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_3));
-                @SuppressLint("Range") int gunskin4 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_3));
+                @SuppressLint("Range") int gunskin4 = ps.getInt(ps.getColumnIndex(DBContext.TABLE_SHOP_COL_GUN_SKIN_4));
                 @SuppressLint("Range") String datestart = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_START));
                 @SuppressLint("Range") String dateend = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_END));
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
