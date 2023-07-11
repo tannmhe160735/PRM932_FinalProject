@@ -224,6 +224,11 @@ public class DBContext extends SQLiteOpenHelper {
                 .rawQuery(sql, new String[]{});
     }
 
+    public Cursor getGunByGunId(int gun_id){
+        String sql = "select * from Gun_skin where Gun_id";
+        return this.getReadableDatabase().rawQuery(sql,new String[]{String.valueOf(gun_id)});
+    }
+
 
     public Cursor getGunByName(String name) {
         String sql = "select * from Gun_skin where Gun_skin_name = ?";
@@ -293,5 +298,9 @@ public class DBContext extends SQLiteOpenHelper {
     public Cursor getUserProfileById(String Userid){
         String sql = "select * from User_Profile where User_id = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{Userid});
+    }
+    public  Cursor getShopByUser(int Userid){
+        String sql = "select * from Shop where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql,new String[]{String.valueOf(Userid)});
     }
 }
