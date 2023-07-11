@@ -39,6 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         dbContext = new DBContext(this);
         for (User item: getAllUser()) {
             if(item.getRemember() == true){
+                editor.putString(Userid, String.valueOf(item.getUser_id()));
+                editor.commit();
                 Intent i = new Intent(this, MenuActivity.class);
                 startActivity(i);
                 finish();
