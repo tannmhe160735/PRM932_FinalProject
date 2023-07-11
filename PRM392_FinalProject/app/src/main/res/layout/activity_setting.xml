@@ -30,6 +30,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="17dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton"
         app:layout_constraintEnd_toStartOf="@+id/tvNgonNgu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChung"
@@ -48,18 +50,6 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChung" />
-
-    <ImageButton
-        android:id="@+id/imgbtnNotice"
-        android:layout_width="42dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/tvNotificationWishList"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnLang"
-        app:srcCompat="@drawable/noticeWishList" />
 
     <CheckBox
         android:id="@+id/ckBoxNotification"
@@ -115,14 +105,12 @@
         android:id="@+id/tvThongBaoDetail"
         android:layout_width="226dp"
         android:layout_height="39dp"
-        android:layout_marginStart="17dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="31dp"
         android:text="Nhận thông báo khi skin trong wishlist trong shop của bạn"
         android:textColor="#AEA9A9"
         android:textColorHint="#ECE2E2"
         app:layout_constraintEnd_toStartOf="@+id/ckBoxNotification"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnNotice"
         app:layout_constraintTop_toBottomOf="@+id/tvNotificationWishList" />
 
     <ImageButton
@@ -130,12 +118,11 @@
         android:layout_width="44dp"
         android:layout_height="49dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="49dp"
         android:layout_marginEnd="14dp"
         app:layout_constraintEnd_toStartOf="@+id/tvQuyenGop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnNotice"
-        app:srcCompat="@drawable/contribute" />
+        app:srcCompat="@drawable/contribute"
+        tools:layout_editor_absoluteY="237dp" />
 
     <TextView
         android:id="@+id/tvQuyenGop"
@@ -200,11 +187,13 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="327dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="casual"
         android:text="Tài khoản"
         android:textColor="#F3EFEF"
         android:textSize="16sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnCopy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgbtnLinkXoaTaiKhoan" />
@@ -287,17 +276,14 @@
         android:id="@+id/tvLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="31dp"
         android:layout_marginEnd="258dp"
-        android:layout_marginBottom="34dp"
         android:fontFamily="casual"
         android:text="Đăng xuất"
         android:textColor="#EFE9E9"
         android:textSize="16sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCopy" />
+        tools:layout_editor_absoluteY="672dp" />
 
     <TextView
         android:id="@+id/tvDanhde"
@@ -333,13 +319,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:layout_marginEnd="230dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="casual"
         android:text="Xóa tài khoản"
         android:textColor="#F1EAEA"
         android:textSize="16sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/tvTaiKhoan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvChinhSachBaoMat" />
 
@@ -348,25 +332,35 @@
         android:layout_width="43dp"
         android:layout_height="49dp"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="23dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgBtnLogOut"
         app:layout_constraintEnd_toStartOf="@+id/tvCopy"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTaiKhoan"
         app:srcCompat="@drawable/copy" />
 
     <ImageButton
-        android:id="@+id/imgbtnLogout"
-        android:layout_width="41dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="6dp"
+        android:id="@+id/imgBtnNoticeWishList"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/imgbtnContribute"
+        app:layout_constraintEnd_toStartOf="@+id/tvNotificationWishList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/noticewishlist" />
+
+    <ImageButton
+        android:id="@+id/imgBtnLogOut"
+        android:layout_width="40dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="14dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="27dp"
+        android:layout_marginBottom="31dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tvLogout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnCopy"
-        app:srcCompat="@drawable/Logout" />
+        app:srcCompat="@drawable/logout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
