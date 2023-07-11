@@ -20,6 +20,7 @@ import com.example.prm392_finalproject.FragmentMenu.ThuVienFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MenuActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
     private static final int FRAGMENT_BO = 0;
     private static final int FRAGMENT_CUAHANG = 1;
     private static final int FRAGMENT_CHODEM = 2;
