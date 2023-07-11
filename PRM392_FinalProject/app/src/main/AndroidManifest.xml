@@ -27,14 +27,14 @@
             android:name=".AddGunActivity"
             android:exported="false" />
         <activity
-         android:name=".ProfileActivity"
+         android:name=".LoginActivity"
          android:exported="false"
         />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
