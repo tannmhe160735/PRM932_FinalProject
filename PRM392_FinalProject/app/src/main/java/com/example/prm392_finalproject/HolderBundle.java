@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 public class HolderBundle extends RecyclerView.ViewHolder {
     private ImageView img;
     private TextView tvname;
@@ -27,9 +29,16 @@ public class HolderBundle extends RecyclerView.ViewHolder {
         bindingView();
 
     }
-
+    private void bindImgLinkToImageView(String link, ImageView imageView) {
+        Glide
+                .with(context)
+                .load(link)
+                .placeholder(R.drawable.img_loading)
+                .error(R.drawable.img_crash)
+                .into(imageView);
+    }
     public void setBundle(Bundle bundles) {
-        img.setImageResource(bundles.getImage());
+        bindImgLinkToImageView(bundles.getImage(),img);
         tvname.setText(bundles.getName());
         tvprice.setId(bundles.getPrice());
     }
