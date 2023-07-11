@@ -263,4 +263,9 @@ public class DBContext extends SQLiteOpenHelper {
         String sql = "INSERT INTO User (User_name, Password, Role) VALUES (?, ?, 1)";
         this.getWritableDatabase().execSQL(sql, new Object[]{username, password});
     }
+
+    public Cursor getUserProfileById(String Userid){
+        String sql = "select * from User_Profile where User_id = ?";
+        return this.getReadableDatabase().rawQuery(sql, new String[]{Userid});
+    }
 }

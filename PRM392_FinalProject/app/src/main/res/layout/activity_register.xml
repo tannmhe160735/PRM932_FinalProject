@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvProfile_Name"
         android:layout_width="379dp"
         android:layout_height="40dp"
         android:layout_marginStart="19dp"
@@ -33,7 +33,7 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvProfile_Name" />
 
     <ImageView
         android:id="@+id/img"
@@ -130,7 +130,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/tvProfile_Name" />
 
     <EditText
         android:id="@+id/edt_register_password"
