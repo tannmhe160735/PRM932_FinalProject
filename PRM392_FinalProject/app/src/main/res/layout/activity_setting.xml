@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:foregroundTint="@color/white">
+
+    <TextView
+        android:id="@+id/tvChung"
+        android:layout_width="63dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="332dp"
+        android:fontFamily="casual"
+        android:text="Chung"
+        android:textColor="#EDE7E7"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLang"
+        android:layout_width="41dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvNgonNgu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChung"
+        app:srcCompat="@drawable/lang" />
+
+    <TextView
+        android:id="@+id/tvNgonNgu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="267dp"
+        android:fontFamily="casual"
+        android:text="Ngôn ngữ"
+        android:textColor="#F1ECEC"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChung" />
+
+    <ImageButton
+        android:id="@+id/imgbtnNotice"
+        android:layout_width="42dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvNotificationWishList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnLang"
+        app:srcCompat="@drawable/noticeWishList" />
+
+    <CheckBox
+        android:id="@+id/ckBoxNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="143dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="#FAF4F4"
+        android:buttonTint="#FAF3F3"
+        android:foregroundTint="#F4EFEF"
+        android:shadowColor="#F6E7E7"
+        android:textColor="#F6F0F0"
+        android:textColorHighlight="#F4EAEA"
+        android:textColorHint="#F6F1F1"
+        android:textColorLink="#F1EDED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/ckBoxCapMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="388dp"
+        android:backgroundTint="#FAF4F4"
+        android:buttonTint="#FAF3F3"
+        android:foregroundTint="#F4EFEF"
+        android:shadowColor="#F6E7E7"
+        android:textColor="#F6F0F0"
+        android:textColorHighlight="#F4EAEA"
+        android:textColorHint="#F6F1F1"
+        android:textColorLink="#F1EDED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckBoxNotification" />
+
+    <TextView
+        android:id="@+id/tvNotificationWishList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="121dp"
+        android:fontFamily="casual"
+        android:text="Thông báo wishlist"
+        android:textColor="#F3E9E9"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/ckBoxNotification"
+        app:layout_constraintTop_toBottomOf="@+id/tvNgonNgu" />
+
+    <TextView
+        android:id="@+id/tvThongBaoDetail"
+        android:layout_width="226dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="31dp"
+        android:text="Nhận thông báo khi skin trong wishlist trong shop của bạn"
+        android:textColor="#AEA9A9"
+        android:textColorHint="#ECE2E2"
+        app:layout_constraintEnd_toStartOf="@+id/ckBoxNotification"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnNotice"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotificationWishList" />
+
+    <ImageButton
+        android:id="@+id/imgbtnContribute"
+        android:layout_width="44dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvQuyenGop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnNotice"
+        app:srcCompat="@drawable/contribute" />
+
+    <TextView
+        android:id="@+id/tvQuyenGop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="260dp"
+        android:fontFamily="casual"
+        android:text="Quyên góp"
+        android:textColor="#F4EFEF"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvThongBaoDetail" />
+
+    <ImageButton
+        android:id="@+id/imgbtnCap"
+        android:layout_width="35dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="26dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvCapMode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnContribute"
+        app:srcCompat="@drawable/cap" />
+
+    <TextView
+        android:id="@+id/tvCapMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="57dp"
+        android:fontFamily="casual"
+        android:text="Chế độ chụp ảnh màn hình"
+        android:textColor="#EFE6E6"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/ckBoxCapMode"
+        app:layout_constraintTop_toBottomOf="@+id/tvQuyenGop" />
+
+    <TextView
+        android:id="@+id/tvLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="336dp"
+        android:fontFamily="casual"
+        android:text="Liên kết"
+        android:textColor="#F3EFEF"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnCap" />
+
+    <TextView
+        android:id="@+id/tvTaiKhoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="327dp"
+        android:fontFamily="casual"
+        android:text="Tài khoản"
+        android:textColor="#F3EFEF"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnLinkXoaTaiKhoan" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLinkDiscord"
+        android:layout_width="46dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvDisCord"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLink"
+        app:srcCompat="@drawable/link" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLinkDanhde"
+        android:layout_width="46dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvDanhde"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnLinkDiscord"
+        app:srcCompat="@drawable/link" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLinkChinhSachBaoMat"
+        android:layout_width="46dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvChinhSachBaoMat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnLinkDanhde"
+        app:srcCompat="@drawable/link" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLinkXoaTaiKhoan"
+        android:layout_width="46dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvXoaTK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnLinkChinhSachBaoMat"
+        app:srcCompat="@drawable/link" />
+
+    <TextView
+        android:id="@+id/tvDisCord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="235dp"
+        android:fontFamily="casual"
+        android:text="Kênh DisCord"
+        android:textColor="#EFE9E9"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCapMode" />
+
+    <TextView
+        android:id="@+id/tvCopy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="140dp"
+        android:fontFamily="casual"
+        android:text="Sao chép ID tài khoản Riot"
+        android:textColor="#EFE9E9"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTaiKhoan" />
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="258dp"
+        android:layout_marginBottom="34dp"
+        android:fontFamily="casual"
+        android:text="Đăng xuất"
+        android:textColor="#EFE9E9"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCopy" />
+
+    <TextView
+        android:id="@+id/tvDanhde"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="268dp"
+        android:fontFamily="casual"
+        android:text="Danh đề"
+        android:textColor="#F1EAEA"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDisCord" />
+
+    <TextView
+        android:id="@+id/tvChinhSachBaoMat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="184dp"
+        android:fontFamily="casual"
+        android:text="Chính sách bảo mật"
+        android:textColor="#F1EAEA"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDanhde" />
+
+    <TextView
+        android:id="@+id/tvXoaTK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="230dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="casual"
+        android:text="Xóa tài khoản"
+        android:textColor="#F1EAEA"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/tvTaiKhoan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvChinhSachBaoMat" />
+
+    <ImageButton
+        android:id="@+id/imgbtnCopy"
+        android:layout_width="43dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="23dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvCopy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTaiKhoan"
+        app:srcCompat="@drawable/copy" />
+
+    <ImageButton
+        android:id="@+id/imgbtnLogout"
+        android:layout_width="41dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginBottom="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvLogout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnCopy"
+        app:srcCompat="@drawable/Logout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
