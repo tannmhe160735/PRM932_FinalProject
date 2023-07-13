@@ -125,7 +125,7 @@ public class NightmarketActivity extends AppCompatActivity {
     }
     private void bindDataToRcvDictionary() {
         rcvmarket.setLayoutManager(new LinearLayoutManager(this));
-        rcvmarket.setAdapter(new AdapterGunSkin(this,gunSkins));
+        rcvmarket.setAdapter(new AdapterNightmarket(this,gunSkins));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
