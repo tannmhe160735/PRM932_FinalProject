@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -55,10 +54,10 @@ public class AddGunActivity extends AppCompatActivity {
         try{
             dbContext.insertGun_Skin(gun_name, gun_price, gun_image, String.valueOf(bundle.getId()));
         }catch (Exception ex){
-            Toast.makeText(this, "Lưu thất bại", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lưu Gun Skin thất bại", Toast.LENGTH_SHORT).show();
             return;
         }
-        Toast.makeText(this, "Lưu thành công", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Lưu Gun Skin thành công", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MenuActivity.class);
         startActivity(i);
         finish();
