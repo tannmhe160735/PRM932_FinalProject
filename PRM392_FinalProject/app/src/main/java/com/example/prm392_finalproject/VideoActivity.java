@@ -3,6 +3,7 @@ package com.example.prm392_finalproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,13 +34,15 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_video);
         bindingView();
         bindingAction();
+        Intent i = getIntent();
+        String link = i.getStringExtra("link");
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
 
         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
             @Override
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
-                String videoId = "YLUc5yMbFVE";
+                String videoId = link;
                 youTubePlayer.loadVideo(videoId, 0);
             }
         });
