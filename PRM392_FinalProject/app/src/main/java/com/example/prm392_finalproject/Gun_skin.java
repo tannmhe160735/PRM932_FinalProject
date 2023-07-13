@@ -8,6 +8,7 @@ public class Gun_skin {
     private String name;
     private int price;
     private String imageUrl;
+    private int discount;
 
     public Gun_skin(){
 
@@ -21,6 +22,15 @@ public class Gun_skin {
         this.imageUrl = imageUrl;
     }
 
+    public Gun_skin(int id, int bundle, String name, int price, String imageUrl, int discount) {
+        this.id = id;
+        Bundle = bundle;
+        this.name = name;
+        this.price = price;
+        this.imageUrl = imageUrl;
+        this.discount = discount;
+    }
+
     public String getName() {
         return name;
     }
@@ -30,7 +40,7 @@ public class Gun_skin {
     }
 
     public int getPrice() {
-        return price;
+        return price - (price * discount/100);
     }
 
     public void setPrice(int price) {
@@ -59,5 +69,13 @@ public class Gun_skin {
 
     public void setBundle(int bundle) {
         Bundle = bundle;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
 }

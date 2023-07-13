@@ -16,12 +16,14 @@ public class Gun_SkinViewHolder extends RecyclerView.ViewHolder {
     private ImageView img;
     private TextView tvname;
     private TextView tvprice;
+    private TextView tvdiscount;
 
     private Context context;
     private void bindingView() {
         img = itemView.findViewById(R.id.img);
         tvname = itemView.findViewById(R.id.tvTitle);
         tvprice = itemView.findViewById(R.id.tvPrice);
+        tvdiscount = itemView.findViewById(R.id.tvdiscount);
     }
 
     public Gun_SkinViewHolder(@NonNull View itemView, Context context) {
@@ -44,5 +46,6 @@ public class Gun_SkinViewHolder extends RecyclerView.ViewHolder {
         tvname.setText(gun_skin.getName());
         tvprice.setText(String.valueOf(gun_skin.getPrice()));
         bindImgLinkToImageView(gun_skin.getImageUrl(), img);
+        tvdiscount.setText(String.valueOf(gun_skin.getDiscount()));
     }
 }

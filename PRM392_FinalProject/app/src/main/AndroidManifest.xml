@@ -15,7 +15,7 @@
         android:theme="@style/Theme.PRM392_FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".AddBundleActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".BundleActivity"
@@ -42,7 +42,7 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".NightmarketActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
