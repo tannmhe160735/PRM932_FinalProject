@@ -13,7 +13,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 public class VideoActivity extends AppCompatActivity {
-
+    //comment
     private Button btnBackBundle;
 
     private void bindingView(){
