@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 18;
+    private static final int DB_VERSION = 19;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -91,6 +91,7 @@ public class DBContext extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_GUN_SKIN);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BUNDLE);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NIGHT_MARKET);
         onCreate(db);
     }
 
@@ -195,10 +196,10 @@ public class DBContext extends SQLiteOpenHelper {
                 "    IsOpen5         boolean default 0,\n" +
                 "    IsOpen6         boolean default 0\n" +
                 ");";
-        String insertBundle1 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Spectrum', 10700, 'https://static.wikia.nocookie.net/valorant/images/f/ff/Bundle_Spectrum.png/revision/latest/scale-to-width-down/1000?cb=20210908214612', '2023-07-01', '2023-08-01', 'https://www.youtube.com/watch?v=YLUc5yMbFVE')";
-        String insertBundle2 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Elderflame', 9900, 'https://static.wikia.nocookie.net/valorant/images/f/fa/Bundle_Elderflame.png/revision/latest/scale-to-width-down/1000?cb=20200710132118', '2023-08-02', '2023-09-01', 'https://www.youtube.com/watch?v=5oslaJjYdzs')";
-        String insertBundle3 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Protocol 781-A', 9900, 'https://static.wikia.nocookie.net/valorant/images/7/76/Bundle_Protocol_781-A.png/revision/latest/scale-to-width-down/1000?cb=20220110184809', '2023-09-02', '2023-10-01', 'https://www.youtube.com/watch?v=h6i8lM3egvI')";
-        String insertBundle4 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Glitchpop', 8700, 'https://static.wikia.nocookie.net/valorant/images/1/10/Bundle_Glitchpop.png/revision/latest/scale-to-width-down/1000?cb=20200805001530', '2023-10-02', '2023-11-01', 'https://www.youtube.com/watch?v=dhNyPZj-nQk')";
+        String insertBundle1 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Spectrum', 10700, 'https://static.wikia.nocookie.net/valorant/images/f/ff/Bundle_Spectrum.png/revision/latest/scale-to-width-down/1000?cb=20210908214612', '2023-07-01', '2023-08-01', 'YLUc5yMbFVE')";
+        String insertBundle2 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Elderflame', 9900, 'https://static.wikia.nocookie.net/valorant/images/f/fa/Bundle_Elderflame.png/revision/latest/scale-to-width-down/1000?cb=20200710132118', '2023-08-02', '2023-09-01', '5oslaJjYdzs')";
+        String insertBundle3 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Protocol 781-A', 9900, 'https://static.wikia.nocookie.net/valorant/images/7/76/Bundle_Protocol_781-A.png/revision/latest/scale-to-width-down/1000?cb=20220110184809', '2023-09-02', '2023-10-01', 'h6i8lM3egvI')";
+        String insertBundle4 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Glitchpop', 8700, 'https://static.wikia.nocookie.net/valorant/images/1/10/Bundle_Glitchpop.png/revision/latest/scale-to-width-down/1000?cb=20200805001530', '2023-10-02', '2023-11-01', 'dhNyPZj-nQk')";
         String insertBundle5 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Singularity', 8700, 'https://static.wikia.nocookie.net/valorant/images/e/e5/Bundle_Singularity.png/revision/latest?cb=20210715135127', '2023-11-02', '2023-12-01')";
         String insertGunSkin1 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Phantom Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/f/f4/SPECTRUM_Phantom.png/revision/latest?cb=20210908214445', 1)";
         String insertGunSkin2 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Classic Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/d/df/SPECTRUM_Classic.png/revision/latest?cb=20210908214458', 1)";

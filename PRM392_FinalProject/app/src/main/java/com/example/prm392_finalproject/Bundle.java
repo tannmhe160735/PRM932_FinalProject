@@ -11,6 +11,7 @@ public class Bundle {
     private String image;
     private Date Date_start;
     private Date Date_end;
+    private String Bundle_Youtube_Uri;
 
     public Bundle() {
     }
@@ -22,6 +23,16 @@ public class Bundle {
         this.image = image;
         Date_start = date_start;
         Date_end = date_end;
+    }
+
+    public Bundle(int id, String name, int price, String image, Date date_start, Date date_end, String bundle_Youtube_Uri) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.image = image;
+        Date_start = date_start;
+        Date_end = date_end;
+        Bundle_Youtube_Uri = bundle_Youtube_Uri;
     }
 
     public int getId() {
@@ -71,5 +82,13 @@ public class Bundle {
 
     public void setDate_end(Date date_end) {
         Date_end = date_end;
+    }
+
+    public String getBundle_Youtube_Uri() {
+        return Bundle_Youtube_Uri;
+    }
+
+    public void setBundle_Youtube_Uri(String bundle_Youtube_Uri) {
+        Bundle_Youtube_Uri = bundle_Youtube_Uri;
     }
 }
