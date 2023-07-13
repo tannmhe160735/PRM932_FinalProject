@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -11,10 +13,26 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 public class VideoActivity extends AppCompatActivity {
 
+    private Button btnBackBundle;
+
+    private void bindingView(){
+        btnBackBundle = findViewById(R.id.btnBackBundle);
+    }
+
+    private void bindingAction(){
+        btnBackBundle.setOnClickListener(this::onBtnBackClick);
+    }
+
+    private void onBtnBackClick(View view) {
+        finish();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+        bindingView();
+        bindingAction();
         YouTubePlayerView youTubePlayerView = findViewById(R.id.youtube_player_view);
         getLifecycle().addObserver(youTubePlayerView);
 
@@ -26,6 +44,4 @@ public class VideoActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
