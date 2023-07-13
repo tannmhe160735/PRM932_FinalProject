@@ -46,6 +46,6 @@ public class Gun_SkinViewHolder extends RecyclerView.ViewHolder {
         tvname.setText(gun_skin.getName());
         tvprice.setText(String.valueOf(gun_skin.getPrice()));
         bindImgLinkToImageView(gun_skin.getImageUrl(), img);
-        tvdiscount.setText(String.valueOf(gun_skin.getDiscount()));
+//        tvdiscount.setText(String.valueOf(gun_skin.getDiscount()));
     }
 }

@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@color/black">
+
+    <TextView
+        android:id="@+id/tvdiscount2"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:text="%"
+        android:textColor="#4CAF50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvdiscount"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleMarket" />
 
     <TextView
         android:id="@+id/tvTitleMarket"
@@ -64,11 +77,13 @@
     <TextView
         android:id="@+id/tvdiscount"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
         android:text="TextView"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="@+id/tvPriceMarket"
+        android:textColor="#4CAF50"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView19"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleMarket" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

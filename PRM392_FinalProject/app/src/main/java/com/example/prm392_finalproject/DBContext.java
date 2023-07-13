@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 21;
+    private static final int DB_VERSION = 22;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -224,7 +224,7 @@ public class DBContext extends SQLiteOpenHelper {
         String insertUserProfile2 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (2, 'Châu Á', 999, 999, 9999, 999, 0)";
         String insertShop1 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (1, 1, 6, 3, 10, '2023-07-14', '2023-07-15')";
         String insertShop2 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-14', '2023-07-15')";
-        String insertNightmarket = "INSERT INTO Night_Market (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Gun_skin_5, Gun_skin_6, Date_start, Date_end, Discount1, Discount2, Discount3, Discount4, Discount5, Discount6) VALUES (1, 2, 9, 3, 6, 4, 10, '2023-07-14', '2023-07-15', 37, 34, 23, 42, 27, 18)";
+        String insertNightmarket = "INSERT INTO Night_Market (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Gun_skin_5, Gun_skin_6, Date_start, Date_end, Discount1, Discount2, Discount3, Discount4, Discount5, Discount6) VALUES (1, 2, 9, 3, 6, 4, 10, '2023-07-14', '2023-08-14', 37, 34, 23, 42, 27, 18)";
         sqLiteDatabase.execSQL(bundle);
         sqLiteDatabase.execSQL(insertBundle1);
         sqLiteDatabase.execSQL(insertBundle2);
