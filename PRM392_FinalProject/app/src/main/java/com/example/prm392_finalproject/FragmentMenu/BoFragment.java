@@ -2,6 +2,7 @@ package com.example.prm392_finalproject.FragmentMenu;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,9 +18,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.prm392_finalproject.AdapterGunSkin;
+import com.example.prm392_finalproject.AddGunActivity;
 import com.example.prm392_finalproject.DBContext;
 import com.example.prm392_finalproject.Gun_skin;
 import com.example.prm392_finalproject.R;
+import com.example.prm392_finalproject.VideoActivity;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
@@ -106,6 +109,16 @@ public class BoFragment extends Fragment {
         dbContext = new DBContext(view.getContext());
         getData(view);
     }
+
+    private void bindingAction(){
+        tvName.setOnClickListener(this::onBtnTitleClick);
+    }
+
+    private void onBtnTitleClick(View view) {
+        Intent i = new Intent(view.getContext(), VideoActivity.class);
+        startActivity(i);
+    }
+
     private void bindDataToRcvDictionary(View v) {
         rcvgun.setLayoutManager(new LinearLayoutManager(v.getContext()));
         rcvgun.setAdapter(new AdapterGunSkin(v.getContext(),gunSkins));
@@ -115,6 +128,7 @@ public class BoFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         bindingView(view);
+        bindingAction();
         bindDataToRcvDictionary(view);
     }
 

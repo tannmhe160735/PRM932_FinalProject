@@ -17,6 +17,12 @@
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+            <activity
+            android:name=".VideoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddBundleActivity"
+            android:exported="false" />
         <activity
             android:name=".BundleActivity"
             android:exported="false" />
