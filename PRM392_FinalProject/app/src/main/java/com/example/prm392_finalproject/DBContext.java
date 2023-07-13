@@ -33,6 +33,7 @@ public class DBContext extends SQLiteOpenHelper {
     public static final String TABLE_GUN_SKIN_COL_GUN_PRICE = "Gun_price";
     public static final String TABLE_GUN_SKIN_COL_GUN_IMAGE = "Gun_skin_image";
     public static final String TABLE_GUN_SKIN_COL_BUNDLE = "Bundle";
+    public static final String TABLE_GUN_SKIN_COL_GUN_PRICE_DISCOUNT = "Gun_price_discount";
 
     public static final String TABLE_SHOP = "Shop";
     public static final String TABLE_SHOP_COL_SHOP_ID = "Shop_id";
@@ -108,15 +109,16 @@ public class DBContext extends SQLiteOpenHelper {
                 ");";
         String gunskin = "create table Gun_skin\n" +
                 "(\n" +
-                "    Gun_id         integer       not null\n" +
+                "    Gun_id             integer       not null\n" +
                 "        primary key autoincrement\n" +
                 "        unique,\n" +
-                "    Gun_skin_name  nvarchar(100) not null,\n" +
-                "    Gun_price      integer       not null,\n" +
-                "    Gun_skin_image text          not null,\n" +
-                "    Bundle         integer\n" +
+                "    Gun_skin_name      nvarchar(100) not null,\n" +
+                "    Gun_price          integer       not null,\n" +
+                "    Gun_skin_image     text          not null,\n" +
+                "    Bundle             integer\n" +
                 "        constraint Gun_skin_Bundle_Bundle_id_fk\n" +
-                "            references Bundle\n" +
+                "            references Bundle,\n" +
+                "    Gun_price_discount integer\n" +
                 ");";
         String shop = "create table Shop\n" +
                 "(\n" +
