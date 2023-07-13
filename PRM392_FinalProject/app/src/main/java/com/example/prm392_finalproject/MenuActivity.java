@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import com.example.prm392_finalproject.FragmentMenu.BoFragment;
 import com.example.prm392_finalproject.FragmentMenu.CaiDatFragment;
+import com.example.prm392_finalproject.FragmentMenu.ChoDemFragment;
 import com.example.prm392_finalproject.FragmentMenu.CuaHangFragment;
 import com.example.prm392_finalproject.FragmentMenu.HosoFragment;
 import com.example.prm392_finalproject.FragmentMenu.ThuVienFragment;
@@ -67,6 +68,10 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             }
 
         }else if (id == R.id.nav_chodem){
+            if(mCurrentFragment !=  FRAGMENT_CHODEM){
+                replaceFragment(new ChoDemFragment());
+                mCurrentFragment = FRAGMENT_CHODEM;
+            }
 
         }else if (id == R.id.nav_hoso){
             if(mCurrentFragment !=  FRAGMENT_HOSO){
