@@ -61,12 +61,13 @@ public class BoFragment extends Fragment {
                 @SuppressLint("Range") String image = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_IMAGE));
                 @SuppressLint("Range") String datestart = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_START));
                 @SuppressLint("Range") String dateend = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_END));
+                @SuppressLint("Range") String bundleLink = ps.getString(ps.getColumnIndex(DBContext.TABLE_BUNDLE_COL_BUNDLE_YOUTUBE_URI));
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
                 try {
                     Date date1 = dateFormat.parse(datestart);
                     Date date2 = dateFormat.parse(dateend);
-                    bundle = new com.example.prm392_finalproject.Bundle(id,name, price, image,date1,date2);
+                    bundle = new com.example.prm392_finalproject.Bundle(id,name, price, image,date1,date2,bundleLink);
                 } catch (ParseException e) {
 
                     e.printStackTrace();
@@ -116,6 +117,7 @@ public class BoFragment extends Fragment {
 
     private void onBtnTitleClick(View view) {
         Intent i = new Intent(view.getContext(), VideoActivity.class);
+        i.putExtra("link", bundle.getBundle_Youtube_Uri());
         startActivity(i);
     }
 
