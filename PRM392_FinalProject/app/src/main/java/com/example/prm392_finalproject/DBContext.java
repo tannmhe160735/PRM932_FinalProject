@@ -69,6 +69,18 @@ public class DBContext extends SQLiteOpenHelper {
     public static final String TABLE_NIGHT_MARKET_COL_GUN_SKIN_4 = "Gun_skin_4";
     public static final String TABLE_NIGHT_MARKET_COL_START = "Date_start";
     public static final String TABLE_NIGHT_MARKET_COL_END = "Date_end";
+    public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT1 = "Discount1";
+    public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT2 = "Discount2";
+    public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT3 = "Discount3";
+    public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT4 = "Discount4";
+    public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT5 = "Discount5";
+    public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT6 = "Discount6";
+    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN1 = "IsOpen1";
+    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN2 = "IsOpen2";
+    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN3= "IsOpen3";
+    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN4 = "IsOpen4";
+    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN5 = "IsOpen5";
+    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN6 = "IsOpen6";
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
