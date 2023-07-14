@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DBContext extends SQLiteOpenHelper {
     private static final String DB_NAME = "PRM392_FinalProject.db";
-    private static final int DB_VERSION = 21;
+    private static final int DB_VERSION = 25;
 
     public DBContext(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -78,12 +78,7 @@ public class DBContext extends SQLiteOpenHelper {
     public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT4 = "Discount4";
     public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT5 = "Discount5";
     public static final String TABLE_NIGHT_MARKET_COL_DISCOUNT6 = "Discount6";
-    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN1 = "IsOpen1";
-    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN2 = "IsOpen2";
-    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN3= "IsOpen3";
-    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN4 = "IsOpen4";
-    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN5 = "IsOpen5";
-    public static final String TABLE_NIGHT_MARKET_COL_ISOPEN6 = "IsOpen6";
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_SHOP);
@@ -188,18 +183,12 @@ public class DBContext extends SQLiteOpenHelper {
                 "    Discount3       integer,\n" +
                 "    Discount4       integer,\n" +
                 "    Discount5       integer,\n" +
-                "    Discount6       integer,\n" +
-                "    IsOpen1         boolean default 0,\n" +
-                "    IsOpen2         boolean default 0,\n" +
-                "    IsOpen3         boolean default 0,\n" +
-                "    IsOpen4         boolean default 0,\n" +
-                "    IsOpen5         boolean default 0,\n" +
-                "    IsOpen6         boolean default 0\n" +
+                "    Discount6       integer\n" +
                 ");";
-        String insertBundle1 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Spectrum', 10700, 'https://static.wikia.nocookie.net/valorant/images/f/ff/Bundle_Spectrum.png/revision/latest/scale-to-width-down/1000?cb=20210908214612', '2023-07-01', '2023-08-01', 'YLUc5yMbFVE')";
-        String insertBundle2 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Elderflame', 9900, 'https://static.wikia.nocookie.net/valorant/images/f/fa/Bundle_Elderflame.png/revision/latest/scale-to-width-down/1000?cb=20200710132118', '2023-08-02', '2023-09-01', '5oslaJjYdzs')";
-        String insertBundle3 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Protocol 781-A', 9900, 'https://static.wikia.nocookie.net/valorant/images/7/76/Bundle_Protocol_781-A.png/revision/latest/scale-to-width-down/1000?cb=20220110184809', '2023-09-02', '2023-10-01', 'h6i8lM3egvI')";
-        String insertBundle4 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Glitchpop', 8700, 'https://static.wikia.nocookie.net/valorant/images/1/10/Bundle_Glitchpop.png/revision/latest/scale-to-width-down/1000?cb=20200805001530', '2023-10-02', '2023-11-01', 'dhNyPZj-nQk')";
+        String insertBundle1 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Spectrum', 10700, 'https://static.wikia.nocookie.net/valorant/images/f/ff/Bundle_Spectrum.png/revision/latest/scale-to-width-down/1000?cb=20210908214612', '2023-08-01', '2023-08-30', 'YLUc5yMbFVE')";
+        String insertBundle2 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Elderflame', 9900, 'https://static.wikia.nocookie.net/valorant/images/f/fa/Bundle_Elderflame.png/revision/latest/scale-to-width-down/1000?cb=20200710132118', '2023-07-01', '2023-07-30', '5oslaJjYdzs')";
+        String insertBundle3 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Protocol 781-A', 9900, 'https://static.wikia.nocookie.net/valorant/images/7/76/Bundle_Protocol_781-A.png/revision/latest/scale-to-width-down/1000?cb=20220110184809', '2023-09-01', '2023-09-30', 'h6i8lM3egvI')";
+        String insertBundle4 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end, Bundle_Youtube_Uri) VALUES ('Glitchpop', 8700, 'https://static.wikia.nocookie.net/valorant/images/1/10/Bundle_Glitchpop.png/revision/latest/scale-to-width-down/1000?cb=20200805001530', '2023-10-01', '2023-10-30', 'dhNyPZj-nQk')";
         String insertBundle5 = "INSERT INTO Bundle (Bundle_name, Bundle_price, Bundle_Image, Date_start, Date_end) VALUES ('Singularity', 8700, 'https://static.wikia.nocookie.net/valorant/images/e/e5/Bundle_Singularity.png/revision/latest?cb=20210715135127', '2023-11-02', '2023-12-01')";
         String insertGunSkin1 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Phantom Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/f/f4/SPECTRUM_Phantom.png/revision/latest?cb=20210908214445', 1)";
         String insertGunSkin2 = "INSERT INTO Gun_skin (Gun_skin_name, Gun_price, Gun_skin_image, Bundle) VALUES ('Classic Spectrum', 2675, 'https://static.wikia.nocookie.net/valorant/images/d/df/SPECTRUM_Classic.png/revision/latest?cb=20210908214458', 1)";
@@ -224,7 +213,8 @@ public class DBContext extends SQLiteOpenHelper {
         String insertUserProfile2 = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (2, 'Châu Á', 999, 999, 9999, 999, 0)";
         String insertShop1 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (1, 1, 6, 3, 10, '2023-07-14', '2023-07-15')";
         String insertShop2 = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (2, 2, 7, 4, 9, '2023-07-14', '2023-07-15')";
-        String insertNightmarket = "INSERT INTO Night_Market (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Gun_skin_5, Gun_skin_6, Date_start, Date_end, Discount1, Discount2, Discount3, Discount4, Discount5, Discount6) VALUES (1, 2, 9, 3, 6, 4, 10, '2023-07-14', '2023-07-15', 37, 34, 23, 42, 27, 18)";
+        String insertNightmarket = "INSERT INTO Night_Market (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Gun_skin_5, Gun_skin_6, Date_start, Date_end, Discount1, Discount2, Discount3, Discount4, Discount5, Discount6) VALUES (1, 2, 9, 3, 6, 4, 10, '2023-07-14', '2023-07-30', 37, 34, 23, 42, 27, 18)";
+        String insertNightmarket2 = "INSERT INTO Night_Market (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Gun_skin_5, Gun_skin_6, Date_start, Date_end, Discount1, Discount2, Discount3, Discount4, Discount5, Discount6) VALUES (2, 11, 1, 2, 10, 13, 3, '2023-07-14', '2023-07-30', 20, 20, 27, 46, 23, 45)";
         sqLiteDatabase.execSQL(bundle);
         sqLiteDatabase.execSQL(insertBundle1);
         sqLiteDatabase.execSQL(insertBundle2);
@@ -260,6 +250,7 @@ public class DBContext extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(insertShop2);
         sqLiteDatabase.execSQL(nightmarket);
         sqLiteDatabase.execSQL(insertNightmarket);
+        sqLiteDatabase.execSQL(insertNightmarket2);
 
     }
 
