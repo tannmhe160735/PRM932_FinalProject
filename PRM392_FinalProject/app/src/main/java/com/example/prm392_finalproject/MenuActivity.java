@@ -47,8 +47,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(new ThuVienFragment());
-        navigationView.getMenu().findItem(R.id.nav_thuvien).setChecked(true);
+        replaceFragment(new BoFragment());
+        navigationView.getMenu().findItem(R.id.nav_bo).setChecked(true);
 
     }
 

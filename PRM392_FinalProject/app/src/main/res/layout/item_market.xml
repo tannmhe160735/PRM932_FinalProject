@@ -7,6 +7,30 @@
     android:background="@color/black">
 
     <TextView
+        android:id="@+id/tvdiscount4"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="3dp"
+        android:text=")"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/tvdiscount2"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleMarket" />
+
+    <TextView
+        android:id="@+id/tvdiscount3"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="3dp"
+        android:text="("
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView19"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleMarket" />
+
+    <TextView
         android:id="@+id/tvdiscount2"
         android:layout_width="wrap_content"
         android:layout_height="27dp"
@@ -80,10 +104,10 @@
         android:layout_height="27dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="3dp"
-        android:text="TextView"
+        android:text="20"
         android:textColor="#4CAF50"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView19"
+        app:layout_constraintStart_toEndOf="@+id/tvdiscount3"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleMarket" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

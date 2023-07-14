@@ -44,8 +44,7 @@ public class ChoDemFragment extends Fragment {
         int y = calendar.get(Calendar.YEAR);
         int m = calendar.get(Calendar.MONTH) +1;
         int d = calendar.get(Calendar.DAY_OF_MONTH);
-        int Useid = 1;
-//        int Useid = 1Integer.parseInt(userid);
+        int Useid = Integer.parseInt(userid);
         nightmarket = new Nightmarket();
         Cursor ps = dbContext.getNightmarket(Useid,y,m,d);
         if (ps == null) {
@@ -129,10 +128,10 @@ public class ChoDemFragment extends Fragment {
     public void bindingView(View view){
         tvDate = view.findViewById(R.id.txtDatemarket);
         rcvmarket = view.findViewById(R.id.rcvmarket);
-//        //get Userid session
-//        SharedPreferences sharedpreferences = this.getSharedPreferences(LoginActivity.MyPREFERENCES, this.MODE_PRIVATE);
-//        userid = sharedpreferences.getString("Userid", null);
-//        //
+        //get Userid session
+        SharedPreferences sharedpreferences = view.getContext().getSharedPreferences(LoginActivity.MyPREFERENCES, view.getContext().MODE_PRIVATE);
+        userid = sharedpreferences.getString("Userid", null);
+        //
         dbContext = new DBContext(view.getContext());
         getData(view);
     }
