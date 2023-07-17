@@ -62,7 +62,7 @@ public class UpdateGunActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Delete thành công", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, LibraryActivity.class);
+        Intent i = new Intent(this, MenuActivity.class);
         startActivity(i);
         finish();
     }
@@ -81,7 +81,7 @@ public class UpdateGunActivity extends AppCompatActivity {
             return;
         }
         Toast.makeText(this, "Update thành công", Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, LibraryActivity.class);
+        Intent i = new Intent(this, MenuActivity.class);
         startActivity(i);
         finish();
     }

@@ -34,7 +34,7 @@ public class NightmarketActivity extends AppCompatActivity {
         int d = calendar.get(Calendar.DAY_OF_MONTH);
         int Useid = Integer.parseInt(userid);
         nightmarket = new Nightmarket();
-        Cursor ps = dbContext.getNightmarket(Useid,y,m,d);
+        Cursor ps = dbContext.getNightmarket(Useid,y,m);
         if (ps == null) {
             return;
         }
