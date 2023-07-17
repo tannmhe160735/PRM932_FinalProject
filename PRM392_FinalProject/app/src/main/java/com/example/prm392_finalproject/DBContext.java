@@ -346,6 +346,11 @@ public class DBContext extends SQLiteOpenHelper {
         this.getWritableDatabase().execSQL(sql, new Object[]{username, password});
     }
 
+    public void createNewProfile(String user_id){
+        String sql = "INSERT INTO User_Profile (User_id, Server, Level, Exp, Valorant_Point, Radianite_Point, Free_Agent) VALUES (?, 'Châu Á', 1, 0, 0, 0, 0)";
+        this.getWritableDatabase().execSQL(sql, new Object[]{user_id});
+    }
+
     public Cursor getUserProfileById(String Userid){
         String sql = "select * from User_Profile where User_id = ?";
         return this.getReadableDatabase().rawQuery(sql, new String[]{Userid});
@@ -356,10 +361,19 @@ public class DBContext extends SQLiteOpenHelper {
         String dayFormatted = String.format("%02d",day);
         return this.getReadableDatabase().rawQuery(sql, new String[]{ String.valueOf(year),monthFormatted,dayFormatted,String.valueOf(Userid)});
     }
-    public  Cursor getNightmarket(int Userid ,int year, int month,int day){
-        String sql = "SELECT * FROM Night_Market WHERE strftime('%Y', Date_start) = ? and strftime('%m', Date_start) = ? and strftime('%d', Date_start) = ? and User_id = ?";
+    public  Cursor getNightmarket(int Userid ,int year, int month){
+        String sql = "SELECT * FROM Night_Market WHERE strftime('%Y', Date_start) = ? and strftime('%m', Date_start) = ? and strftime('%d', Date_start) between '01' and '30' and User_id = ?";
         String monthFormatted = String.format("%02d", month);
-        String dayFormatted = String.format("%02d",day);
-        return this.getReadableDatabase().rawQuery(sql, new String[]{ String.valueOf(year),monthFormatted,dayFormatted,String.valueOf(Userid)});
+        return this.getReadableDatabase().rawQuery(sql, new String[]{ String.valueOf(year),monthFormatted,String.valueOf(Userid)});
+    }
+
+    public void createNewShop(String user_id, String Gun_skin_1, String Gun_skin_2, String Gun_skin_3, String Gun_skin_4, String Date_start, String Date_end){
+        String sql = "INSERT INTO Shop (User_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        this.getWritableDatabase().execSQL(sql, new Object[]{user_id, Gun_skin_1, Gun_skin_2, Gun_skin_3, Gun_skin_4, Date_start, Date_end});
+    }
+
+    public Cursor getRandom4Gun(){
+        String sql = "SELECT Gun_id FROM Gun_skin ORDER BY RANDOM() LIMIT 4";
+        return this.getReadableDatabase().rawQuery(sql,new String[]{});
     }
 }

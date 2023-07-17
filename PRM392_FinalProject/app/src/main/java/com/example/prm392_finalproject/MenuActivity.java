@@ -24,12 +24,13 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
 
     private static final int FRAGMENT_BO = 0;
     private static final int FRAGMENT_CUAHANG = 1;
-    private static final int FRAGMENT_CHODEM = 2;
+    public static final int FRAGMENT_CHODEM = 2;
     private static final int FRAGMENT_HOSO = 3;
     private static final int FRAGMENT_THUVIEN = 4;
     private static final int FRAGMENT_CAIDAT = 5;
-    private int mCurrentFragment =  FRAGMENT_THUVIEN;
+    public int mCurrentFragment =  FRAGMENT_BO;
     private DrawerLayout mDrawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,7 +106,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-    private  void replaceFragment(Fragment fragment){
+    public void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
         transaction.commit();

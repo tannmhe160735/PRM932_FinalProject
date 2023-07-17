@@ -1,6 +1,7 @@
 package com.example.prm392_finalproject.FragmentMenu;
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.prm392_finalproject.AdapterGunSkin;
 import com.example.prm392_finalproject.DBContext;
 import com.example.prm392_finalproject.Gun_skin;
+import com.example.prm392_finalproject.LoginActivity;
 import com.example.prm392_finalproject.R;
 import com.example.prm392_finalproject.Shop;
 
@@ -33,17 +35,19 @@ public class CuaHangFragment extends Fragment {
     private List<Gun_skin> gunSkins;
     private Shop shop;
     private DBContext dbContext;
+    private String userid;
 
     private void getData(View view) {
         Calendar calendar = Calendar.getInstance();
         int y = calendar.get(Calendar.YEAR);
         int m = calendar.get(Calendar.MONTH) +1;
         int d = calendar.get(Calendar.DAY_OF_MONTH);
-        int Useid = 1;
+        int Useid = Integer.parseInt(userid);
         shop = new Shop();
         Cursor ps = dbContext.getShopByUser(Useid,y,m,d);
-        if (ps == null) {
-            return;
+        if (ps.getCount() < 1) {
+            CreateNewShopForUser(Useid);
+            ps = dbContext.getShopByUser(Useid,y,m,d);
         }
         if (ps.moveToFirst()) {
             do {
@@ -103,6 +107,10 @@ public class CuaHangFragment extends Fragment {
         tvDate = v.findViewById(R.id.txtDateShop);
         rcvShop = v.findViewById(R.id.rcvShop);
         dbContext = new DBContext(v.getContext());
+        //get Userid session
+        SharedPreferences sharedpreferences = v.getContext().getSharedPreferences(LoginActivity.MyPREFERENCES, v.getContext().MODE_PRIVATE);
+        userid = sharedpreferences.getString("Userid", null);
+        //
         getData(v);
     }
     private void bindDataToRcvDictionary(View v) {
@@ -121,6 +129,39 @@ public class CuaHangFragment extends Fragment {
         return inflater.inflate(R.layout.activity_shop, container, false);
     }
 
+    private List<Gun_skin> get4GunSkin() {
+        List<Gun_skin> gunSkins = new ArrayList<>();
+        Cursor ps = dbContext.getRandom4Gun();
+        if(ps.getCount() < 1){
+            return null;
+        }
+        if (ps.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int id = ps.getInt(ps.getColumnIndex(DBContext.TABLE_GUN_SKIN_COL_GUN_ID));
+                Gun_skin gun_skin = new Gun_skin();
+                gun_skin.setId(id);
+                gunSkins.add(gun_skin);
+            } while (ps.moveToNext());
+        }
+        return gunSkins;
+    }
 
+    private void CreateNewShopForUser(int user_id){
+        gunSkins = get4GunSkin();
+        int[] arr = new int[30];
+        for (int i = 0; i < gunSkins.size() ; i++ ) {
+            arr[i] = gunSkins.get(i).getId();
+        }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        Date today = calendar.getTime();
+
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        Date tomorrow = calendar.getTime();
+
+        String todaydate = dateFormat.format(today);
+        String tomorrowdate = dateFormat.format(tomorrow);
+        dbContext.createNewShop(String.valueOf(user_id), String.valueOf(arr[0]), String.valueOf(arr[1]), String.valueOf(arr[2]), String.valueOf(arr[3]), todaydate, tomorrowdate);
+    }
 
 }
