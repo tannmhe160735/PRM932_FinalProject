@@ -25,6 +25,7 @@ public class UpdateGunActivity extends AppCompatActivity {
     private Spinner spinnerUpdateBundle;
     private Button btnUpdateGun;
     private Button btnDeleteGun;
+    private Button btnBackGun2;
     private DBContext dbContext = new DBContext(this);
 
     private Gun_skin gun_skin;
@@ -37,6 +38,7 @@ public class UpdateGunActivity extends AppCompatActivity {
         spinnerUpdateBundle = findViewById(R.id.spinnerUpdateBundle);
         btnUpdateGun = findViewById(R.id.btnUpdateGun);
         btnDeleteGun = findViewById(R.id.btnDeleteGun);
+        btnBackGun2 = findViewById(R.id.btnBackGun2);
         ArrayList<String> arrayList = new ArrayList<>();
         ArrayList<com.example.prm392_finalproject.Bundle> bundles = getBundleList();
         for (com.example.prm392_finalproject.Bundle item:
@@ -51,6 +53,13 @@ public class UpdateGunActivity extends AppCompatActivity {
     private void bindingAction(){
         btnUpdateGun.setOnClickListener(this::onBtnUpdateGunClick);
         btnDeleteGun.setOnClickListener(this::onBtnDeleteGunClick);
+        btnBackGun2.setOnClickListener(this::onBtnBackGunClick);
+    }
+
+    private void onBtnBackGunClick(View view) {
+        Intent i = new Intent(this, MenuActivity.class);
+        setResult(0,i);
+        finish();
     }
 
     private void onBtnDeleteGunClick(View view) {
@@ -63,7 +72,7 @@ public class UpdateGunActivity extends AppCompatActivity {
         }
         Toast.makeText(this, "Delete thành công", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MenuActivity.class);
-        startActivity(i);
+        setResult(0,i);
         finish();
     }
 
@@ -82,7 +91,7 @@ public class UpdateGunActivity extends AppCompatActivity {
         }
         Toast.makeText(this, "Update thành công", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MenuActivity.class);
-        startActivity(i);
+        setResult(0,i);
         finish();
     }
 

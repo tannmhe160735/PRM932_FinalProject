@@ -1,5 +1,6 @@
 package com.example.prm392_finalproject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +19,7 @@ public class LibraryViewHolder extends RecyclerView.ViewHolder {
     private TextView tvLibraryPrice;
     private Context context;
     String userid;
+    private static final int REQUEST_CODE_FOR_OPEN_UPDATEGUNACTIVITY = 3;
     private void bindingView() {
         imageView = itemView.findViewById(R.id.imageView);
         tvLibraryName = itemView.findViewById(R.id.tvLibraryName);
@@ -40,7 +42,7 @@ public class LibraryViewHolder extends RecyclerView.ViewHolder {
         Intent i = new Intent(context, UpdateGunActivity.class);
         String name = tvLibraryName.getText().toString();
         i.putExtra("name", name);
-        context.startActivity(i);
+        ((Activity) context).startActivityForResult(i, REQUEST_CODE_FOR_OPEN_UPDATEGUNACTIVITY);
     }
 
     public LibraryViewHolder(@NonNull View itemView, Context context) {
@@ -64,4 +66,7 @@ public class LibraryViewHolder extends RecyclerView.ViewHolder {
         tvLibraryPrice.setText(String.valueOf(gun_skin.getPrice()));
         bindImgLinkToImageView(gun_skin.getImageUrl(), imageView);
     }
+
+
+
 }

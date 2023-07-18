@@ -1,6 +1,7 @@
 package com.example.prm392_finalproject;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -9,8 +10,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.prm392_finalproject.FragmentMenu.BoFragment;
 import com.example.prm392_finalproject.FragmentMenu.CaiDatFragment;
@@ -30,6 +33,9 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     private static final int FRAGMENT_CAIDAT = 5;
     public int mCurrentFragment =  FRAGMENT_THUVIEN;
     private DrawerLayout mDrawerLayout;
+
+    private static final int REQUEST_CODE_FOR_OPEN_ADDGUNACTIVITY = 2;
+    private static final int REQUEST_CODE_FOR_OPEN_UPDATEGUNACTIVITY = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,5 +116,15 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.content_frame, fragment);
         transaction.commit();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == 0){
+            Intent i = new Intent(this, MenuActivity.class);
+            startActivity(i);
+            finish();
+        }
     }
 }

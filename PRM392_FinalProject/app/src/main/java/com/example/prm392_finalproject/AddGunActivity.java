@@ -22,6 +22,7 @@ public class AddGunActivity extends AppCompatActivity {
     private EditText edtGunImage;
     private Spinner spinnerBundle;
     private Button btnAddGun;
+    private Button btnBackGun;
     private DBContext dbContext = new DBContext(this);
 
     private void bindingView(){
@@ -30,6 +31,7 @@ public class AddGunActivity extends AppCompatActivity {
         edtGunImage = findViewById(R.id.edtUpdateGunImage);
         spinnerBundle = findViewById(R.id.spinnerUpdateBundle);
         btnAddGun = findViewById(R.id.btnUpdateGun);
+        btnBackGun = findViewById(R.id.btnBackGun);
         ArrayList<String> arrayList = new ArrayList<>();
         ArrayList<com.example.prm392_finalproject.Bundle> bundles = getBundleList();
         for (com.example.prm392_finalproject.Bundle item:
@@ -43,6 +45,13 @@ public class AddGunActivity extends AppCompatActivity {
 
     private void bindingAction(){
         btnAddGun.setOnClickListener(this::onBtnAddGunClick);
+        btnBackGun.setOnClickListener(this::onBtnBackGunClick);
+    }
+
+    private void onBtnBackGunClick(View view) {
+        Intent i = new Intent(this, MenuActivity.class);
+        setResult(0,i);
+        finish();
     }
 
     private void onBtnAddGunClick(View view) {
@@ -59,7 +68,7 @@ public class AddGunActivity extends AppCompatActivity {
         }
         Toast.makeText(this, "Lưu Gun Skin thành công", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, MenuActivity.class);
-        startActivity(i);
+        setResult(0,i);
         finish();
     }
 

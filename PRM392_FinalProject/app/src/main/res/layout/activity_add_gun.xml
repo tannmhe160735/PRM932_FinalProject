@@ -7,6 +7,22 @@
     tools:context=".AddGunActivity">
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnBackGun"
+        android:layout_width="267dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="63dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="63dp"
+        android:background="#ABFA4451"
+        android:backgroundTint="@null"
+        android:text="Back"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateGun" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnUpdateGun"
         android:layout_width="267dp"
         android:layout_height="52dp"
