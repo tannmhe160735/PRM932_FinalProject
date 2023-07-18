@@ -28,7 +28,7 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
     private static final int FRAGMENT_HOSO = 3;
     private static final int FRAGMENT_THUVIEN = 4;
     private static final int FRAGMENT_CAIDAT = 5;
-    public int mCurrentFragment =  FRAGMENT_BO;
+    public int mCurrentFragment =  FRAGMENT_THUVIEN;
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -48,8 +48,8 @@ public class MenuActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        replaceFragment(new BoFragment());
-        navigationView.getMenu().findItem(R.id.nav_bo).setChecked(true);
+        replaceFragment(new ThuVienFragment());
+        navigationView.getMenu().findItem(R.id.nav_thuvien).setChecked(true);
 
     }
 
