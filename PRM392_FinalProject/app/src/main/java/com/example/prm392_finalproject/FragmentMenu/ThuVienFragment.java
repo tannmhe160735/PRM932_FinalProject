@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -43,6 +44,7 @@ public class ThuVienFragment extends Fragment {
     private FloatingActionButton add_gun_button;
     private DBContext dbContext;
     private String userid;
+    private static final int REQUEST_CODE_FOR_OPEN_ADDGUNACTIVITY = 2;
     private void getData() {
         gunSkins = new ArrayList<>();
         Cursor ps = dbContext.getAllGun();
@@ -108,7 +110,7 @@ public class ThuVienFragment extends Fragment {
 
     private void onBtnAddGunClick(View view) {
         Intent i = new Intent(view.getContext(), AddGunActivity.class);
-        startActivity(i);
+        startActivityForResult(i, REQUEST_CODE_FOR_OPEN_ADDGUNACTIVITY);
     }
 
     private void bindDataToRcvDictionary(View v) {
